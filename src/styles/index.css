@@ -132,3 +132,90 @@ table {
 html {
   font-size: 62.5%;
 }
+*,
+html {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+}
+body {
+  background-color: #fafafe;
+}
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.navigation {
+  background-color: white;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 9.4rem;
+  padding: 5.2rem 0 3.48rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.navigation .nav-links {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.navigation .nav-links .nav-link {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 5rem;
+}
+.navigation .nav-links .nav-link:hover .tooltip {
+  display: flex;
+}
+.navigation .nav-links .active-tab-indicator {
+  width: 0.6rem;
+  height: 4.5rem;
+  border-radius: 0 4px 4px 0;
+}
+.navigation .nav-links .active {
+  background-color: #f9a109;
+}
+.navigation .nav-links .material-icons,
+.navigation .nav-links .material-icons-outlined {
+  padding-left: 2.7rem;
+  color: #454545;
+}
+.navigation .nav-links .tooltip {
+  position: absolute;
+  left: 80%;
+  display: none;
+  align-items: center;
+  max-height: 2.1rem;
+}
+.navigation .nav-links .tooltip .arrow-left {
+  width: 0;
+  height: 0;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-right: 5px solid #454545;
+}
+.navigation .nav-links .tooltip span {
+  font-size: 1.2rem;
+  color: white;
+  background-color: #454545;
+  padding: 0.3rem 1.6rem;
+  border-radius: 4px;
+}
+.navigation .shopping-list-btn {
+  border: none;
+  border-radius: 50%;
+  width: 4.2rem;
+  height: 4.2rem;
+  background-color: #f9a109;
+  cursor: pointer;
+}
+.navigation .shopping-list-btn span {
+  color: white;
+}
