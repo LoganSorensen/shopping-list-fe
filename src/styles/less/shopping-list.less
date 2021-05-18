@@ -1,0 +1,101 @@
+.shopping-list {
+  position: relative;
+  background-color: #fff0de;
+  height: 100%;
+  width: 100%;
+  padding: 4.3rem 3.1rem 0 4.8rem;
+
+  .add-item-cta {
+    position: relative;
+    background-color: #80485b;
+    padding: 1.8rem 0;
+    padding-right: 2.7rem;
+    border-radius: 24px;
+
+    svg {
+      position: absolute;
+      top: -14%;
+      left: 3.5%;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      margin-left: 12.2rem;
+    }
+
+    p {
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: white;
+      margin-bottom: 1.3rem;
+      line-height: 2rem;
+    }
+
+    button {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #34333a;
+      background-color: white;
+      box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.04);
+      border: none;
+      border-radius: 12px;
+      padding: 1.1rem 2.9rem;
+      width: 12rem;
+    }
+  }
+
+  .no-items {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #34333a;
+    margin-top: 22rem;
+  }
+
+  .shopping-svg {
+    position: absolute;
+    bottom: 13%;
+    z-index: 1;
+    margin-left: 2.4rem;
+  }
+
+  .add-list-item-form {
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 3.4rem 3.9rem;
+  }
+
+  form {
+    position: relative;
+
+    input {
+      width: 100%;
+      padding: 2.1rem 0;
+      padding-left: 1.7rem;
+      border: 2px solid #c1c1c4;
+      border-radius: 12px;
+      font-size: 1.4rem;
+      &::placeholder {
+        color: #bdbdbd;
+      }
+    }
+
+    button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      color: white;
+      background-color: #c1c1c4;
+      font-size: 1.6rem;
+      font-weight: 700;
+      padding: 2rem 2.45rem;
+      border: none;
+      border-radius: 12px;
+    }
+  }
+}

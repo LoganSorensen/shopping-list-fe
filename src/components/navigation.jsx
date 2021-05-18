@@ -9,7 +9,6 @@ const Navigation = () => {
   return (
     <div className="navigation">
       <Logo />
-
       <div className="nav-links">
         <div className="nav-link">
           <div
@@ -24,7 +23,6 @@ const Navigation = () => {
             <span>items</span>
           </div>
         </div>
-
         <div className="nav-link">
           <div
             className={`${
@@ -32,13 +30,11 @@ const Navigation = () => {
             } active-tab-indicator`}
           ></div>
           <span className="material-icons noselect">replay</span>
-
           <div className="tooltip noselect">
             <div className="arrow-left"></div>
             <span>history</span>
           </div>
         </div>
-
         <div className="nav-link">
           <div
             className={`${
@@ -46,14 +42,12 @@ const Navigation = () => {
             } active-tab-indicator`}
           ></div>
           <span className="material-icons-outlined noselect">assessment</span>
-
           <div className="tooltip noselect">
             <div className="arrow-left"></div>
             <span>statistics</span>
           </div>
         </div>
       </div>
-
       <button className="shopping-list-btn">
         {badgeNum > 0 && <div className="badge">{badgeNum}</div>}
         <span className="material-icons-outlined shopping-cart-icon noselect">
