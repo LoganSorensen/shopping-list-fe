@@ -35,15 +35,17 @@ a {
 .viewport {
   width: 100%;
   margin-left: @nav-width;
-  margin-right: @sidebar-width;
+  // margin-right: @sidebar-width;
   padding: 2.77rem 9rem 0 8rem;
 }
 
 .sidebar {
-  position: fixed;
+  // position: fixed;
   top: 0;
   right: 0%;
   height: 100vh;
-  width: 38.9em;
+  max-height: 100vh;
+  min-width: @sidebar-width;
+  max-width: @sidebar-width;
 }
 
