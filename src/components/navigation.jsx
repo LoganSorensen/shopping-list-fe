@@ -4,6 +4,7 @@ import { ReactComponent as Logo } from "../assets/logo.svg";
 
 const Navigation = () => {
   const [activeTab, setActiveTab] = useState("items");
+  const [badgeNum, setBadgeNum] = useState(3);
 
   return (
     <div className="navigation">
@@ -54,6 +55,7 @@ const Navigation = () => {
       </div>
 
       <button className="shopping-list-btn">
+        {badgeNum > 0 && <div className="badge">{badgeNum}</div>}
         <span className="material-icons-outlined shopping-cart-icon noselect">
           shopping_cart
         </span>

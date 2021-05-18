@@ -147,6 +147,12 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
+.App {
+  display: flex;
+}
+.viewport {
+  margin-left: 9.4rem;
+}
 .navigation {
   background-color: white;
   height: 100vh;
@@ -209,12 +215,24 @@ body {
   border-radius: 4px;
 }
 .navigation .shopping-list-btn {
+  position: relative;
   border: none;
   border-radius: 50%;
   width: 4.2rem;
   height: 4.2rem;
   background-color: #f9a109;
   cursor: pointer;
+}
+.navigation .shopping-list-btn .badge {
+  position: absolute;
+  top: -10%;
+  left: 65%;
+  font-size: 1.2rem;
+  color: white;
+  height: 2rem;
+  padding: 0.25rem 0.68rem;
+  background-color: #eb5757;
+  border-radius: 4px;
 }
 .navigation .shopping-list-btn span {
   color: white;
