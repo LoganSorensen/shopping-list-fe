@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { ReactComponent as Logo } from "../assets/logo.svg";
 
@@ -10,7 +11,7 @@ const Navigation = () => {
     <div className="navigation">
       <Logo />
       <div className="nav-links">
-        <div className="nav-link">
+        <Link to='/' className="nav-link">
           <div
             className={`${
               activeTab === "items" ? "active" : ""
@@ -22,8 +23,8 @@ const Navigation = () => {
             <div className="arrow-left"></div>
             <span>items</span>
           </div>
-        </div>
-        <div className="nav-link">
+        </Link>
+        <Link to='/history' className="nav-link">
           <div
             className={`${
               activeTab === "history" ? "active" : ""
@@ -34,8 +35,8 @@ const Navigation = () => {
             <div className="arrow-left"></div>
             <span>history</span>
           </div>
-        </div>
-        <div className="nav-link">
+        </Link>
+        <Link to='/statistics' className="nav-link">
           <div
             className={`${
               activeTab === "statistics" ? "active" : ""
@@ -46,7 +47,7 @@ const Navigation = () => {
             <div className="arrow-left"></div>
             <span>statistics</span>
           </div>
-        </div>
+        </Link>
       </div>
       <button className="shopping-list-btn">
         {badgeNum > 0 && <div className="badge">{badgeNum}</div>}

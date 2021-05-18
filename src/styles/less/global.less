@@ -16,6 +16,10 @@ body {
   background-color: #fafafe;
 }
 
+a {
+  text-decoration: none;
+}
+
 .noselect {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -29,7 +33,10 @@ body {
 }
 
 .viewport {
+  width: 100%;
   margin-left: @nav-width;
+  margin-right: @sidebar-width;
+  padding: 2.77rem 9rem 0 8rem;
 }
 
 .sidebar {
@@ -39,3 +46,4 @@ body {
   height: 100vh;
   width: 38.9em;
 }
+
