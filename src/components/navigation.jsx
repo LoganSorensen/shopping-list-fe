@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import { ReactComponent as Logo } from "../assets/logo.svg";
+import { setCurrentPage } from "../actions/setPageStateActions";
 
-const Navigation = () => {
-  const [activeTab, setActiveTab] = useState("items");
+const Navigation = ({ currentPage, setCurrentPage }) => {
   const [badgeNum, setBadgeNum] = useState(3);
 
   return (
     <div className="navigation">
       <Logo />
       <div className="nav-links">
-        <Link to='/' className="nav-link">
+        <Link to="/" className="nav-link" onClick={() => setCurrentPage("/")}>
           <div
             className={`${
-              activeTab === "items" ? "active" : ""
+              currentPage === "/" ? "active" : ""
             } active-tab-indicator`}
           ></div>
           <span className="material-icons noselect">format_list_bulleted</span>
@@ -24,10 +25,14 @@ const Navigation = () => {
             <span>items</span>
           </div>
         </Link>
-        <Link to='/history' className="nav-link">
+        <Link
+          to="/history"
+          className="nav-link"
+          onClick={() => setCurrentPage("/history")}
+        >
           <div
             className={`${
-              activeTab === "history" ? "active" : ""
+              currentPage === "/history" ? "active" : ""
             } active-tab-indicator`}
           ></div>
           <span className="material-icons noselect">replay</span>
@@ -36,10 +41,14 @@ const Navigation = () => {
             <span>history</span>
           </div>
         </Link>
-        <Link to='/statistics' className="nav-link">
+        <Link
+          to="/statistics"
+          className="nav-link"
+          onClick={() => setCurrentPage("/statistics")}
+        >
           <div
             className={`${
-              activeTab === "statistics" ? "active" : ""
+              currentPage === "/statistics" ? "active" : ""
             } active-tab-indicator`}
           ></div>
           <span className="material-icons-outlined noselect">assessment</span>
@@ -59,4 +68,11 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+const mapStateToProps = (state) => {
+  // console.log({state})
+  return {
+    currentPage: state.setPageState.currentPage,
+  };
+};
+
+export default connect(mapStateToProps, { setCurrentPage })(Navigation);

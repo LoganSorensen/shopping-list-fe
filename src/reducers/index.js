@@ -1,7 +1,9 @@
-import {combineReducers } from 'redux'
+import { combineReducers } from "redux";
 
-const rootReducer  = combineReducers({
+import { setPageState } from "./setPageStateReducer";
 
-}) 
+const rootReducer = combineReducers({
+  setPageState,
+});
 
 export default rootReducer;

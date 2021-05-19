@@ -15,7 +15,7 @@ const ShoppingList = () => {
       <div className="add-item-cta">
         <BottleSVG />
         <div>
-          <p>Didn't find what you need?</p>
+          <p>Can't find what you need?</p>
           <button>Add item</button>
         </div>
       </div>
