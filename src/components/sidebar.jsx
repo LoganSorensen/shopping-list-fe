@@ -3,12 +3,14 @@ import { connect } from "react-redux";
 
 import ShoppingList from "./shoppingList";
 import AddItemForm from "./addItemForm";
+import ItemDescription from './itemDescription';
 
 const Sidebar = ({ component }) => {
   return (
     <div className="sidebar">
       {component === "shoppingList" && <ShoppingList />}
       {component === "addItem" && <AddItemForm />}
+      {component === "itemDescription" && <ItemDescription />}
     </div>
   );
 };

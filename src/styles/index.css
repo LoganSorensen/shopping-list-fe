@@ -405,6 +405,7 @@ a {
   padding: 1.5rem 1.75rem 1.5rem 1.6rem;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.05);
   border-radius: 12px;
+  cursor: pointer;
 }
 .items-list .item span {
   color: #c1c1c4;
@@ -498,4 +499,85 @@ a {
 .add-item-form .cancel-btn {
   background-color: transparent;
   margin-right: 2rem;
+}
+.item-description {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  padding: 2.7rem 4.4rem 3.4rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.item-description .back-btn {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 3.4rem;
+  color: #f9a109;
+  cursor: pointer;
+}
+.item-description .back-btn span {
+  transform: rotate(180deg);
+  margin-right: 0.65rem;
+}
+.item-description .img-wrapper {
+  width: 100%;
+  min-height: 22rem;
+  background-color: #fafafe;
+  border-radius: 25px;
+  overflow: hidden;
+  margin-bottom: 5.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+.item-description .img-wrapper img {
+  max-width: 100%;
+}
+.item-description .detail-name {
+  color: #c1c1c4;
+  font-size: 1.2rem;
+  margin-bottom: 1.15rem;
+}
+.item-description p {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.item-description .item-name {
+  font-size: 2.4rem;
+  margin-bottom: 3.3rem;
+  text-transform: capitalize;
+}
+.item-description .item-category {
+  margin-bottom: 3.6rem;
+}
+.item-description .item-note {
+  margin-bottom: 3.4rem;
+  line-height: 2.25rem;
+}
+.item-description .btns {
+  display: flex;
+  margin: 0 auto;
+}
+.item-description .btns button {
+  font-size: 1.6rem;
+  font-weight: 700;
+  border: none;
+}
+.item-description .btns .delete-btn {
+  color: #34333a;
+  background-color: transparent;
+  margin-right: 2.2rem;
+}
+.item-description .btns .add-btn {
+  color: white;
+  background-color: #f9a109;
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  margin-left: 2.2rem;
 }

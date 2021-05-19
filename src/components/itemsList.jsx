@@ -36,7 +36,7 @@ const ItemsList = ({ data }) => {
               style={{ gridTemplateColumns: `repeat(${numberOfColumns}, 1fr)` }}
             >
               {data.items.map((item, index) => (
-                <Item key={index} item={item} />
+                <Item key={index} item={item} category={data.category} />
               ))}
             </div>
           </div>

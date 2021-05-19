@@ -1,19 +1,28 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const Item = ({ item }) => {
-//   console.log(item);
+import { setItemDetails } from "../actions/setItemsActions";
+import { setSidebarComponent } from "../actions/setPageStateActions";
 
-    const getWidth = () => {
-       const viewport = document.querySelector('.viewport')
-       console.log(viewport.offsetWidth)
-    }
+const Item = ({ item, category, setItemDetails, setSidebarComponent }) => {
+  const handleClick = () => {
+    setSidebarComponent("itemDescription");
+    setItemDetails({
+      category: category,
+      name: item.name,
+      note: item.note,
+      image: item.image,
+    });
+  };
 
   return (
-    <div className="item noselect" onClick={getWidth}>
+    <div className="item noselect" onClick={handleClick}>
       {item.name}
       <span className="material-icons">add</span>
     </div>
   );
 };
 
-export default Item;
+export default connect(null, { setItemDetails, setSidebarComponent })(Item);
+
+
