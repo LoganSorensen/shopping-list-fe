@@ -5,8 +5,8 @@ import "./styles/index.css";
 import Navigation from "./components/navigation";
 import SideBar from "./components/sidebar";
 import ItemsPage from "./pages/itemsPage";
-import HistoryPage from './pages/historyPage'
-import StatisticsPage from './pages/statisticsPage'
+import HistoryPage from "./pages/historyPage";
+import StatisticsPage from "./pages/statisticsPage";
 
 function App() {
   return (

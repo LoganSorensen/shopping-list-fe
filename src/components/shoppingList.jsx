@@ -1,13 +1,19 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 
 import { ReactComponent as BottleSVG } from "../assets/source.svg";
 import { ReactComponent as ShoppingSVG } from "../assets/undraw_shopping_app_flsj_1.svg";
+import { setSidebarComponent } from "../actions/setPageStateActions";
 
-const ShoppingList = () => {
+const ShoppingList = ({ setSidebarComponent }) => {
   const [items, setItems] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+  };
+
+  const addItem = () => {
+    setSidebarComponent("addItem");
   };
 
   return (
@@ -16,7 +22,7 @@ const ShoppingList = () => {
         <BottleSVG />
         <div>
           <p>Can't find what you need?</p>
-          <button>Add item</button>
+          <button onClick={addItem}>Add item</button>
         </div>
       </div>
 
@@ -37,4 +43,4 @@ const ShoppingList = () => {
   );
 };
 
-export default ShoppingList;
+export default connect(null, { setSidebarComponent })(ShoppingList);

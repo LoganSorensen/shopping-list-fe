@@ -2,7 +2,7 @@ import { SET_CURRENT_PAGE, SET_SIDEBAR_COMPONENT } from "../actions/types";
 
 const initialState = {
   currentPage: window.location.pathname,
-  sideBarComponent: "shoppingList",
+  sidebarComponent: "addItem",
 };
 
 export const setPageState = (state = initialState, action) => {
@@ -15,7 +15,7 @@ export const setPageState = (state = initialState, action) => {
     case SET_SIDEBAR_COMPONENT:
       return {
         ...state,
-        sideBarComponent: action.payload,
+        sidebarComponent: action.payload,
       };
     default:
       return state;

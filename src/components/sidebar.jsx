@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
+import { connect } from "react-redux";
 
 import ShoppingList from "./shoppingList";
+import AddItemForm from "./addItemForm";
 
-const Sidebar = () => {
-  const [component, setComponent] = useState("list");
-
+const Sidebar = ({ component }) => {
   return (
-    <div className="sidebar">{component === "list" && <ShoppingList />}</div>
+    <div className="sidebar">
+      {component === "shoppingList" && <ShoppingList />}
+      {component === "addItem" && <AddItemForm />}
+    </div>
   );
 };
 
-export default Sidebar;
+const mapStateToProps = (state) => {
+  return {
+    component: state.setPageState.sidebarComponent,
+  };
+};
+
+export default connect(mapStateToProps, {})(Sidebar);

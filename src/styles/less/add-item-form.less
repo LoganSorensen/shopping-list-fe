@@ -1,0 +1,108 @@
+.add-item-form {
+  padding: 3.4rem 4rem 3.4rem 3.8rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  h2 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 3.37rem;
+  }
+
+  .fields {
+    width: 100%;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+
+    div {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    span {
+      position: absolute;
+      right: 5%;
+      color: #828282;
+      cursor: pointer;
+    }
+
+    #name {
+      margin-bottom: 1.8rem;
+    }
+
+    #note {
+      margin-bottom: 2.4rem;
+    }
+
+    #image {
+      margin-bottom: 3.3rem;
+    }
+  }
+
+  label {
+    font-size: 1.4rem;
+    color: @text-dark;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 2.1rem 1.7rem;
+    padding-right: 4rem;
+    border: 2px solid #bdbdbd;
+    border-radius: 12px;
+    &::placeholder {
+      color: #bdbdbd;
+    }
+  }
+
+  textarea {
+    resize: none;
+    height: 11rem;
+  }
+
+  .field--focused {
+    label {
+      color: @yellow;
+    }
+
+    input,
+    textarea {
+      border-color: @yellow;
+      outline: none;
+    }
+
+    span {
+      display: block;
+    }
+  }
+
+  .form-btns button {
+    font-size: 1.6rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+  }
+
+  .save-btn {
+    color: white;
+    background-color: @yellow;
+    border-radius: 12px;
+    padding: 2rem 2.5rem;
+    margin-left: 2rem;
+  }
+
+  .cancel-btn {
+    background-color: transparent;
+    margin-right: 2rem;
+  }
+}
