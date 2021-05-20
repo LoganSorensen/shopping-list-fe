@@ -10,15 +10,33 @@ const AddItemForm = ({ setSidebarComponent }) => {
     image: "",
     category: "",
   });
+  const categories = ["Fruit and Vegetables", "Meat and Fish", "Beverages"];
 
-  const handleFocus = (e) => e.currentTarget.classList.add("field--focused");
+  const handleFocus = (e) => {
+    const categoryList = document.querySelector(".category-list");
+    if (e.currentTarget.contains(categoryList))
+      categoryList.style.display = "flex";
 
-  const handleBlur = (e) => e.currentTargetclassList.remove("field--focused");
+    e.currentTarget.classList.add("field--focused");
+  };
+
+  const handleBlur = (e) => {
+    const categoryList = document.querySelector(".category-list");
+
+    if (!e.currentTarget.contains(e.relatedTarget)) {
+      categoryList.style.display = "none";
+    }
+    e.currentTarget.classList.remove("field--focused");
+  };
 
   const clearField = (field) => setItem({ ...item, [field]: "" });
 
   const handleChange = (e) =>
     setItem({ ...item, [e.target.name]: e.target.value });
+
+  const setCategory = (e) => {
+    setItem({ ...item, category: e.target.textContent });
+  };
 
   const resetForm = () =>
     setItem({ name: "", note: "", image: "", category: "" });
@@ -35,12 +53,16 @@ const AddItemForm = ({ setSidebarComponent }) => {
   };
 
   return (
-    <form className="add-item-form" onSubmit={handleSubmit}>
+    <form
+      className="add-item-form"
+      onSubmit={handleSubmit}
+      autoComplete={"off"}
+    >
       <div className="fields">
         <h2>Add a new item</h2>
         <div className="field" onFocus={handleFocus} onBlur={handleBlur}>
           <label htmlFor="name">Name</label>
-          <div id="name">
+          <div id="name" className="input-wrapper">
             <input
               type="text"
               placeholder="Enter a name"
@@ -60,7 +82,7 @@ const AddItemForm = ({ setSidebarComponent }) => {
         </div>
         <div className="field" onFocus={handleFocus} onBlur={handleBlur}>
           <label htmlFor="note">Note (optional)</label>
-          <div id="note">
+          <div id="note" className="input-wrapper">
             <textarea
               placeholder="Enter a note"
               name="note"
@@ -79,7 +101,7 @@ const AddItemForm = ({ setSidebarComponent }) => {
         </div>
         <div className="field" onFocus={handleFocus} onBlur={handleBlur}>
           <label htmlFor="image">Image (optional)</label>
-          <div id="image">
+          <div id="image" className="input-wrapper">
             <input
               type="text"
               placeholder="Enter a url"
@@ -97,10 +119,16 @@ const AddItemForm = ({ setSidebarComponent }) => {
             </span>
           </div>
         </div>
-        <div className="field" onFocus={handleFocus} onBlur={handleBlur}>
+
+        <div
+          className="field category-field"
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+        >
           <label htmlFor="category">Category</label>
-          <div id="category">
+          <div id="category" className="input-wrapper">
             <input
+              id="category-input"
               type="text"
               placeholder="Enter a category"
               name="category"
@@ -115,6 +143,18 @@ const AddItemForm = ({ setSidebarComponent }) => {
             >
               close
             </span>
+          </div>
+          <div className="category-list">
+            {categories.map((category, index) => (
+              <button
+                type="button"
+                value={category}
+                key={index}
+                onClick={setCategory}
+              >
+                {category}
+              </button>
+            ))}
           </div>
         </div>
       </div>

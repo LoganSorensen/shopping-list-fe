@@ -458,7 +458,7 @@ a {
   display: flex;
   flex-direction: column;
 }
-.add-item-form .field div {
+.add-item-form .field .input-wrapper {
   position: relative;
   display: flex;
   align-items: center;
@@ -510,6 +510,36 @@ a {
 }
 .add-item-form .field--focused span {
   display: block;
+}
+.add-item-form .category-list {
+  display: none;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.04);
+  padding: 1.2rem 0.8rem;
+  margin-top: 1.2rem;
+}
+.add-item-form .category-list button,
+.add-item-form .category-list div {
+  font-size: 1.8rem;
+  width: 100%;
+  text-align: start;
+  color: #828282;
+  background-color: white;
+  padding: 1.2rem 2.2rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.add-item-form .category-list button:hover,
+.add-item-form .category-list div:hover {
+  color: #34333a;
+  background-color: #f2f2f2;
+}
+.add-item-form .test {
+  display: none;
 }
 .add-item-form .form-btns button {
   font-size: 1.6rem;
