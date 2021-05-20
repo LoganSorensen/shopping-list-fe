@@ -74,53 +74,19 @@ export const setItems = (state = initialState, action) => {
       };
     case ADD_TO_LIST:
       // checks if a category matching the items exists already
-      if (state.categories.includes(action.payload.category.toLowerCase())) {
-        console.log("includes, adding");
-        state.shoppingList.map((entry, index) => {
-          // finds the entry in the list that matches the category
-          if (
-            entry.category.toLowerCase() ===
-            action.payload.category.toLowerCase()
-          ) {
-            console.log(entry, state.shoppingList[index]);
-            console.log("running if");
-            return {
-              ...state,
-              shoppingList: [
-                ...state.shoppingList,
-                (state.shoppingList[index] = {
-                  ...state.shoppingList[index],
-                  items: [
-                    ...state.shoppingList[index].items,
-                    { name: action.payload.name, count: action.payload.count },
-                  ],
-                }),
-              ],
-            };
-          }
-          return null;
-        });
-        // if the category doesn't exist, creates a new entry for the category
-      } else {
-        console.log("doesn't include, creating a new one");
+      if (state.categories.includes(action.payload.category)) {
         return {
           ...state,
-          categories: [
-            ...state.categories,
-            action.payload.category.toLowerCase(),
-          ],
-          shoppingList: [
-            ...state.shoppingList,
-            {
-              category: action.payload.category,
-              items: [
-                { name: action.payload.name, count: action.payload.count },
-              ],
-            },
-          ],
+          shoppingList: [...state.shoppingList, action.payload],
+        };
+        // if the category doesn't exist, creates a new entry for the category
+      } else {
+        return {
+          ...state,
+          categories: [...state.categories, action.payload.category],
+          shoppingList: [...state.shoppingList, action.payload],
         };
       }
-      return state;
     default:
       return state;
   }

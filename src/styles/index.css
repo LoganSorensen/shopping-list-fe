@@ -325,13 +325,22 @@ a {
   font-size: 1.8rem;
   font-weight: 600;
 }
-.shopping-list .add-list-item-form {
+.shopping-list .save-list-form {
   width: 100%;
   background-color: white;
   position: absolute;
   left: 0;
   bottom: 0;
   padding: 3.4rem 3.9rem;
+}
+.shopping-list .form--disabled {
+  pointer-events: none;
+}
+.shopping-list .form--disabled input {
+  border: 2px solid #c1c1c4;
+}
+.shopping-list .form--disabled button {
+  background-color: #c1c1c4;
 }
 .shopping-list form {
   position: relative;
@@ -340,7 +349,7 @@ a {
   width: 100%;
   padding: 2.1rem 0;
   padding-left: 1.7rem;
-  border: 2px solid #c1c1c4;
+  border: 2px solid #f9a109;
   border-radius: 12px;
   font-size: 1.4rem;
 }
@@ -353,7 +362,7 @@ a {
   right: 0;
   height: 100%;
   color: white;
-  background-color: #c1c1c4;
+  background-color: #f9a109;
   font-size: 1.6rem;
   font-weight: 700;
   padding: 2rem 2.45rem;

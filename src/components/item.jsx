@@ -23,8 +23,7 @@ const Item = ({
   };
 
   const addItemToList = () => {
-    // console.log("adding: ", item);
-    addToList({category: category, name: item.name, count: 1});
+    addToList({ category: category, name: item.name, count: 1 });
   };
 
   return (

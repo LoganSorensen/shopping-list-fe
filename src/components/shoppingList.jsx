@@ -6,13 +6,17 @@ import { ReactComponent as ShoppingSVG } from "../assets/undraw_shopping_app_fls
 import { setSidebarComponent } from "../actions/setPageStateActions";
 import ItemCount from "./itemCount";
 
-const ShoppingList = ({ setSidebarComponent, list }) => {
+const ShoppingList = ({ setSidebarComponent, list, categories }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
   const addItem = () => {
     setSidebarComponent("addItem");
+  };
+
+  const saveList = () => {
+    console.log("saving");
   };
 
   return (
@@ -24,7 +28,6 @@ const ShoppingList = ({ setSidebarComponent, list }) => {
           <button onClick={addItem}>Add item</button>
         </div>
       </div>
-
       {list.length < 1 ? (
         <>
           <div className="no-items">No items</div>
@@ -32,18 +35,20 @@ const ShoppingList = ({ setSidebarComponent, list }) => {
         </>
       ) : (
         <div className="item-list">
-          {list.map((entry, index) => {
-            // console.log(entry);
+          {categories.map((category, index) => {
             return (
               <div className="list-category" key={index}>
-                <h3>{entry.category}</h3>
-                {entry.items.map((item, index) => {
-                  return (
-                    <div className="list-item" key={index}>
-                      <p>{item.name}</p>
-                      <ItemCount count={item.count} />
-                    </div>
-                  );
+                <h3>{category}</h3>
+                {list.map((item, index) => {
+                  if (item.category === category) {
+                    return (
+                      <div className="list-item" key={index}>
+                        <p>{item.name}</p>
+                        <ItemCount count={item.count} />
+                      </div>
+                    );
+                  }
+                  return null;
                 })}
               </div>
             );
@@ -51,10 +56,12 @@ const ShoppingList = ({ setSidebarComponent, list }) => {
         </div>
       )}
 
-      <div className="add-list-item-form">
+      <div
+        className={`save-list-form ${list.length > 0 ? "" : "form--disabled"}`}
+      >
         <form onSubmit={handleSubmit}>
           <input type="text" placeholder="Enter a name" />
-          <button>Save</button>
+          <button onClick={saveList}>Save</button>
         </form>
       </div>
     </div>
@@ -62,7 +69,9 @@ const ShoppingList = ({ setSidebarComponent, list }) => {
 };
 
 const mapStateToProps = (state) => {
+  // console.log("list", state.setItems.shoppingList);
   return {
+    categories: state.setItems.categories,
     list: state.setItems.shoppingList,
   };
 };
