@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 
 import { ReactComponent as BottleSVG } from "../assets/source.svg";
 import { ReactComponent as ShoppingSVG } from "../assets/undraw_shopping_app_flsj_1.svg";
 import { setSidebarComponent } from "../actions/setPageStateActions";
+import ItemCount from "./itemCount";
 
-const ShoppingList = ({ setSidebarComponent }) => {
-  const [items, setItems] = useState([]);
-
+const ShoppingList = ({ setSidebarComponent, list }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -26,11 +25,30 @@ const ShoppingList = ({ setSidebarComponent }) => {
         </div>
       </div>
 
-      {items.length < 1 && (
+      {list.length < 1 ? (
         <>
           <div className="no-items">No items</div>
           <ShoppingSVG className="shopping-svg" />
         </>
+      ) : (
+        <div className="item-list">
+          {list.map((entry, index) => {
+            // console.log(entry);
+            return (
+              <div className="list-category" key={index}>
+                <h3>{entry.category}</h3>
+                {entry.items.map((item, index) => {
+                  return (
+                    <div className="list-item" key={index}>
+                      <p>{item.name}</p>
+                      <ItemCount count={item.count} />
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })}
+        </div>
       )}
 
       <div className="add-list-item-form">
@@ -43,4 +61,10 @@ const ShoppingList = ({ setSidebarComponent }) => {
   );
 };
 
-export default connect(null, { setSidebarComponent })(ShoppingList);
+const mapStateToProps = (state) => {
+  return {
+    list: state.setItems.shoppingList,
+  };
+};
+
+export default connect(mapStateToProps, { setSidebarComponent })(ShoppingList);

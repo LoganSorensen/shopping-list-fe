@@ -263,6 +263,7 @@ a {
   padding: 1.8rem 0;
   padding-right: 2.7rem;
   border-radius: 24px;
+  margin-bottom: 4.3rem;
 }
 .shopping-list .add-item-cta svg {
   position: absolute;
@@ -305,6 +306,24 @@ a {
   bottom: 13%;
   z-index: 1;
   margin-left: 2.4rem;
+}
+.shopping-list .item-list h3 {
+  font-size: 1.4rem;
+  color: #828282;
+  margin-bottom: 1.5rem;
+}
+.shopping-list .list-category {
+  margin-bottom: 4.4rem;
+}
+.shopping-list .list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.shopping-list .list-item p {
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 .shopping-list .add-list-item-form {
   width: 100%;
@@ -580,4 +599,15 @@ a {
   border-radius: 12px;
   padding: 2rem 2.5rem;
   margin-left: 2.2rem;
+}
+.item-count .count-btn {
+  color: #f9a109;
+  font-size: 1.2rem;
+  background-color: transparent;
+  border: 2px solid #f9a109;
+  border-radius: 24px;
+  padding: 0.8rem 2rem;
+}
+.item-count .count-btn span {
+  font-weight: 700;
 }

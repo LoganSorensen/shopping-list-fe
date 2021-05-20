@@ -1,4 +1,4 @@
-import { SET_ITEM_DETAILS } from "../actions/types";
+import { SET_ITEM_DETAILS, ADD_TO_LIST } from "../actions/types";
 
 const data = [
   {
@@ -13,7 +13,7 @@ const data = [
       { name: "banana", note: "banana desc", image: null },
       {
         name: "bunch of carrots 5pcs",
-        note: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a ligula lobortis, interdum mi nec, ornare mi. Phasellus molestie elit sed porta finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In a leo porttitor, dictum justo sit amet, ullamcorper lorem. Fusce placerat nisi a felis eleifend semper. Proin lacinia tellus eu lectus sagittis scelerisque. Maecenas neque velit, molestie id pulvinar interdum, tristique vel est. Aenean accumsan, lacus in molestie convallis, justo erat pellentesque leo, ac sagittis risus nulla vitae massa. Pellentesque id felis in lacus dignissim mollis id commodo turpis. In vel vulputate ipsum, quis facilisis orci. Vestibulum posuere enim arcu, et dapibus nunc elementum in. Sed et mi posuere purus cursus convallis eu in ex. Etiam vestibulum lorem aliquam massa varius, vel sagittis dui lacinia. Maecenas dictum quis ex ac aliquet. Duis tristique neque sit amet velit rutrum, non accumsan elit lacinia.',
+        note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a ligula lobortis, interdum mi nec, ornare mi. Phasellus molestie elit sed porta finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In a leo porttitor, dictum justo sit amet, ullamcorper lorem. Fusce placerat nisi a felis eleifend semper. Proin lacinia tellus eu lectus sagittis scelerisque. Maecenas neque velit, molestie id pulvinar interdum, tristique vel est. Aenean accumsan, lacus in molestie convallis, justo erat pellentesque leo, ac sagittis risus nulla vitae massa. Pellentesque id felis in lacus dignissim mollis id commodo turpis. In vel vulputate ipsum, quis facilisis orci. Vestibulum posuere enim arcu, et dapibus nunc elementum in. Sed et mi posuere purus cursus convallis eu in ex. Etiam vestibulum lorem aliquam massa varius, vel sagittis dui lacinia. Maecenas dictum quis ex ac aliquet. Duis tristique neque sit amet velit rutrum, non accumsan elit lacinia.",
         image: null,
       },
       { name: "chicken 1kg", note: "chicken desc", image: null },
@@ -60,6 +60,7 @@ const data = [
 
 const initialState = {
   items: data,
+  categories: [],
   shoppingList: [],
   itemDetails: null,
 };
@@ -71,7 +72,55 @@ export const setItems = (state = initialState, action) => {
         ...state,
         itemDetails: action.payload,
       };
-
+    case ADD_TO_LIST:
+      // checks if a category matching the items exists already
+      if (state.categories.includes(action.payload.category.toLowerCase())) {
+        console.log("includes, adding");
+        state.shoppingList.map((entry, index) => {
+          // finds the entry in the list that matches the category
+          if (
+            entry.category.toLowerCase() ===
+            action.payload.category.toLowerCase()
+          ) {
+            console.log(entry, state.shoppingList[index]);
+            console.log("running if");
+            return {
+              ...state,
+              shoppingList: [
+                ...state.shoppingList,
+                (state.shoppingList[index] = {
+                  ...state.shoppingList[index],
+                  items: [
+                    ...state.shoppingList[index].items,
+                    { name: action.payload.name, count: action.payload.count },
+                  ],
+                }),
+              ],
+            };
+          }
+          return null;
+        });
+        // if the category doesn't exist, creates a new entry for the category
+      } else {
+        console.log("doesn't include, creating a new one");
+        return {
+          ...state,
+          categories: [
+            ...state.categories,
+            action.payload.category.toLowerCase(),
+          ],
+          shoppingList: [
+            ...state.shoppingList,
+            {
+              category: action.payload.category,
+              items: [
+                { name: action.payload.name, count: action.payload.count },
+              ],
+            },
+          ],
+        };
+      }
+      return state;
     default:
       return state;
   }

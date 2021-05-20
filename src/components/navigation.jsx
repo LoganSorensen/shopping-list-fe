@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -7,6 +7,11 @@ import { setCurrentPage } from "../actions/setPageStateActions";
 
 const Navigation = ({ currentPage, setCurrentPage }) => {
   const [badgeNum, setBadgeNum] = useState(3);
+
+  useEffect(() => {
+
+    setBadgeNum(3)
+  }, [])
 
   return (
     <div className="navigation">
