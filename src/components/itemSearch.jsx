@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import { connect } from "react-redux";
 
-const ItemSearch = () => {
-  const [query, setQuery] = useState("");
+import { setQuery } from "../actions/setItemsActions";
 
+const ItemSearch = ({ setQuery }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -14,14 +15,9 @@ const ItemSearch = () => {
   return (
     <form onSubmit={handleSubmit} className="item-search">
       <span className="material-icons">search</span>
-      <input
-        type="text"
-        placeholder="search items"
-        value={query}
-        onChange={handleChange}
-      />
+      <input type="text" placeholder="search items" onChange={handleChange} />
     </form>
   );
 };
 
-export default ItemSearch;
+export default connect(null, { setQuery })(ItemSearch);

@@ -74,7 +74,6 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
 };
 
 const mapStateToProps = (state) => {
-  // console.log({state})
   return {
     currentPage: state.setPageState.currentPage,
   };

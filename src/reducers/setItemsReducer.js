@@ -1,4 +1,4 @@
-import { SET_ITEM_DETAILS, ADD_TO_LIST } from "../actions/types";
+import { SET_ITEM_DETAILS, ADD_TO_LIST, SET_QUERY } from "../actions/types";
 
 const data = [
   {
@@ -60,6 +60,7 @@ const data = [
 
 const initialState = {
   items: data,
+  query: "",
   categories: [],
   shoppingList: [],
   itemDetails: null,
@@ -67,6 +68,11 @@ const initialState = {
 
 export const setItems = (state = initialState, action) => {
   switch (action.type) {
+    case SET_QUERY:
+      return {
+        ...state,
+        query: action.payload,
+      };
     case SET_ITEM_DETAILS:
       return {
         ...state,

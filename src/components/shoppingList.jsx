@@ -69,7 +69,6 @@ const ShoppingList = ({ setSidebarComponent, list, categories }) => {
 };
 
 const mapStateToProps = (state) => {
-  // console.log("list", state.setItems.shoppingList);
   return {
     categories: state.setItems.categories,
     list: state.setItems.shoppingList,

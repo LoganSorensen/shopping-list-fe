@@ -12,8 +12,6 @@ const ItemDescription = ({ setSidebarComponent, item }) => {
 
   const addToList = () => {};
 
-  console.log("item: ", item);
-
   return (
     <>
       {item && (
