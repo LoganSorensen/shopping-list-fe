@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 
 import Item from "./item";
 
-const ItemsList = ({ data, query }) => {
+const ItemsList = ({ items, query, categories }) => {
   const [numberOfColumns, setNumberOfColumns] = useState(3);
-  const [displayItems, setDisplayItems] = useState(data);
+  const [displayItems, setDisplayItems] = useState(items);
+  const [displayCategories, setDisplayCategories] = useState(categories);
 
   const determineColumnWidth = () => {
     const viewport = document.querySelector(".viewport");
@@ -26,37 +27,58 @@ const ItemsList = ({ data, query }) => {
     determineColumnWidth();
   }, []);
 
+  const getCategories = () => {
+    const filteredCategories = [];
+    items.map((item) => {
+      if (!filteredCategories.includes(item.category))
+        filteredCategories.push(item.category);
+      return null;
+    });
+    setDisplayCategories(filteredCategories);
+  };
+
   useEffect(() => {
     // checks for items that match the search term
     if (query) {
-      const filteredData = data.map((data) => {
-        return {
-          category: data.category,
-          items: data.items.filter((item) =>
-            item.name.toLowerCase().includes(query.toLowerCase())
-          ),
-        };
+      const filteredData = items.filter((item) =>
+        item.name.toLowerCase().includes(query.toLowerCase())
+      );
+
+      const filteredCategories = [];
+
+      // populates a new array with all the categories in the filtered data
+      filteredData.map((data) => {
+        if (!filteredCategories.includes(data.category))
+          filteredCategories.push(data.category);
+        return null;
       });
 
       setDisplayItems(filteredData);
+      setDisplayCategories(filteredCategories);
     } else {
-      setDisplayItems(data);
+      // resets the local state if there is no query
+      setDisplayItems(items);
+      getCategories();
     }
-  }, [query, data]);
+    // eslint-disable-next-line
+  }, [query, items, categories]);
 
   return (
     <div className="items-list">
-      {displayItems.map((data, index) => {
+      {displayCategories.map((category, index) => {
         return (
           <div className="category" key={index}>
-            {data.items.length > 0 && <h3>{data.category}</h3>}
+            <h3>{category}</h3>
             <div
               className="items"
               style={{ gridTemplateColumns: `repeat(${numberOfColumns}, 1fr)` }}
             >
-              {data.items.map((item, index) => (
-                <Item key={index} item={item} category={data.category} />
-              ))}
+              {displayItems.map((item, index) => {
+                if (item.category === category) {
+                  return <Item key={index} item={item} />;
+                }
+                return null;
+              })}
             </div>
           </div>
         );
@@ -67,7 +89,8 @@ const ItemsList = ({ data, query }) => {
 
 const mapStateToProps = (state) => {
   return {
-    data: state.setItems.items,
+    categories: state.setItems.allCategories,
+    items: state.setItems.items,
     query: state.setItems.query,
   };
 };

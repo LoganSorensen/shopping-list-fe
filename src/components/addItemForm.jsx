@@ -35,7 +35,9 @@ const AddItemForm = ({ setSidebarComponent }) => {
     setItem({ ...item, [e.target.name]: e.target.value });
 
   const setCategory = (e) => {
+    const categoryList = document.querySelector(".category-list");
     setItem({ ...item, category: e.target.textContent });
+    categoryList.style.display = "none";
   };
 
   const resetForm = () =>
