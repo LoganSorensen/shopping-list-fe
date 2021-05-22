@@ -1,4 +1,10 @@
-import { SET_ITEM_DETAILS, ADD_TO_LIST, SET_QUERY } from "../actions/types";
+import {
+  SET_ITEM_DETAILS,
+  ADD_TO_LIST,
+  REMOVE_FROM_LIST,
+  SET_QUERY,
+  SET_COUNT,
+} from "../actions/types";
 import { data } from "../utils/data";
 
 const initialState = {
@@ -43,6 +49,30 @@ export const setItems = (state = initialState, action) => {
           shoppingList: [...state.shoppingList, action.payload],
         };
       }
+    case REMOVE_FROM_LIST:
+      return {
+        ...state,
+        items: [...state.items, action.payload],
+        shoppingList: state.shoppingList.filter(
+          (item) => item.id !== action.payload.id
+        ),
+      };
+    case SET_COUNT:
+      const newList = state.shoppingList.map((item) => {
+        if (item.id === action.payload.id) {
+          return {
+            ...item,
+            count: item.count + action.payload.value,
+          };
+        }
+        return {
+          ...item,
+        };
+      });
+      return {
+        ...state,
+        shoppingList: newList,
+      };
     default:
       return state;
   }

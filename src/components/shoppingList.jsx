@@ -44,7 +44,7 @@ const ShoppingList = ({ setSidebarComponent, list, categories }) => {
                     return (
                       <div className="list-item" key={index}>
                         <p>{item.name}</p>
-                        <ItemCount count={item.count} />
+                        <ItemCount item={item} />
                       </div>
                     );
                   }

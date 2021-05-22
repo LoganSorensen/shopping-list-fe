@@ -1,4 +1,7 @@
 .item-count {
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
   .count-btn {
     color: @yellow;
     font-size: 1.2rem;
@@ -6,9 +9,62 @@
     border: 2px solid @yellow;
     border-radius: 24px;
     padding: 0.8rem 2rem;
+    cursor: pointer;
 
-    span {
+    .count-number {
       font-weight: 700;
+      margin-right: 0.4rem;
     }
+  }
+
+  .delete-item-btn,
+  .change-count-btn {
+    display: none;
+  }
+}
+
+.item-count--active {
+  background-color: white;
+  padding: 0.645em 0.9em;
+  padding-left: 5em;
+  border-radius: 12px;
+  min-width: 17.3rem;
+  width: 17.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+
+  .delete-item-btn,
+  .change-count-btn,
+  button {
+    display: flex;
+    align-items: center;
+  }
+
+  .delete-item-btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    background-color: @yellow;
+    cursor: pointer;
+  }
+
+  .change-count-btn {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .count-btn {
+    margin: 0 0.5rem;
+  }
+
+  .icon {
+    color: @yellow;
   }
 }

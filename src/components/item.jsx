@@ -12,6 +12,7 @@ const Item = ({ item, setItemDetails, setSidebarComponent, addToList }) => {
   };
 
   const addItemToList = () => {
+    setSidebarComponent("shoppingList");
     addToList({
       id: item.id,
       category: item.category,
