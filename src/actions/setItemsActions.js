@@ -4,6 +4,7 @@ import {
   REMOVE_FROM_LIST,
   SET_QUERY,
   SET_COUNT,
+  ADD_ITEM,
 } from "./types";
 
 export const setItemDetails = (item) => {
@@ -25,3 +26,7 @@ export const setQuery = (query) => {
 export const setCount = (item) => {
   return { type: SET_COUNT, payload: item };
 };
+
+export const addItem = (item) => {
+  return {type: ADD_ITEM, payload: item}
+}

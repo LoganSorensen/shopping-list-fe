@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import { setSidebarComponent } from "../actions/setPageStateActions";
+import { addItem } from "../actions/setItemsActions";
 
-const AddItemForm = ({ setSidebarComponent }) => {
+const AddItemForm = ({ setSidebarComponent, categories, addItem }) => {
   const [item, setItem] = useState({
     name: "",
     note: "",
     image: "",
     category: "",
   });
-  const categories = ["Fruit and Vegetables", "Meat and Fish", "Beverages"];
 
   const handleFocus = (e) => {
     const categoryList = document.querySelector(".category-list");
@@ -45,8 +45,9 @@ const AddItemForm = ({ setSidebarComponent }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(item);
+    addItem({ ...item, id: Date.now() });
     resetForm();
+    setSidebarComponent("shoppingList");
   };
 
   const handleCancel = () => {
@@ -172,4 +173,12 @@ const AddItemForm = ({ setSidebarComponent }) => {
   );
 };
 
-export default connect(null, { setSidebarComponent })(AddItemForm);
+const mapStateToProps = (state) => {
+  return {
+    categories: state.setItems.allCategories,
+  };
+};
+
+export default connect(mapStateToProps, { setSidebarComponent, addItem })(
+  AddItemForm
+);

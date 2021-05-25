@@ -4,6 +4,7 @@ import {
   REMOVE_FROM_LIST,
   SET_QUERY,
   SET_COUNT,
+  ADD_ITEM,
 } from "../actions/types";
 import { data } from "../utils/data";
 
@@ -72,6 +73,18 @@ export const setItems = (state = initialState, action) => {
       return {
         ...state,
         shoppingList: newList,
+      };
+    case ADD_ITEM:
+      if (!state.allCategories.includes(action.payload.category)) {
+        return {
+          ...state,
+          allCategories: [...state.allCategories, action.payload.category],
+          items: [...state.items, action.payload],
+        };
+      }
+      return {
+        ...state,
+        items: [...state.items, action.payload],
       };
     default:
       return state;

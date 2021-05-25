@@ -29,7 +29,7 @@ const ItemCount = ({ item, removeFromList, setCount }) => {
     );
   };
 
-  const handleClick = (e) => {
+  const toggleActive = (e) => {
     const parentEl = e.currentTarget.parentElement;
     parentEl.classList.toggle("item-count--active");
   };
@@ -52,7 +52,7 @@ const ItemCount = ({ item, removeFromList, setCount }) => {
       <button className="change-count-btn" onClick={changeCount}>
         <span className="material-icons-outlined icon">remove</span>
       </button>
-      <button className="count-btn" onClick={handleClick}>
+      <button className="count-btn" onClick={toggleActive}>
         <span className="count-number">{itemCount}</span>pcs
       </button>
       <button className="change-count-btn" onClick={changeCount}>

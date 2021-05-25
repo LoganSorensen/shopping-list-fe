@@ -30,8 +30,12 @@ const ItemDescription = ({ setSidebarComponent, item }) => {
           <p className="item-name">{item.name}</p>
           <span className="detail-name">category</span>
           <p className="item-category">{item.category}</p>
-          <span className="detail-name">note</span>
-          <p className="item-note">{item.note}</p>
+          {item.note && (
+            <>
+              <span className="detail-name">note</span>
+              <p className="item-note">{item.note}</p>
+            </>
+          )}
           <div className="btns">
             <button className="delete-btn" onClick={deleteItem}>
               delete
