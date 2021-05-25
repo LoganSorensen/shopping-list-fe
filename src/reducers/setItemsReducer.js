@@ -5,6 +5,7 @@ import {
   SET_QUERY,
   SET_COUNT,
   ADD_ITEM,
+  DELETE_ITEM,
 } from "../actions/types";
 import { data } from "../utils/data";
 
@@ -85,6 +86,11 @@ export const setItems = (state = initialState, action) => {
       return {
         ...state,
         items: [...state.items, action.payload],
+      };
+    case DELETE_ITEM:
+      return {
+        ...state,
+        items: state.items.filter((item) => item.id !== action.payload.id),
       };
     default:
       return state;

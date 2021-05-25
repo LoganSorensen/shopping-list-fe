@@ -2,15 +2,28 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { setSidebarComponent } from "../actions/setPageStateActions";
+import { addToList, deleteItem } from "../actions/setItemsActions";
 
-const ItemDescription = ({ setSidebarComponent, item }) => {
+const ItemDescription = ({
+  setSidebarComponent,
+  item,
+  addToList,
+  deleteItem,
+}) => {
   const changeSidebarComponent = () => {
     setSidebarComponent("shoppingList");
   };
 
-  const deleteItem = () => {};
+  const removeItem = () => {
+    deleteItem(item);
+    changeSidebarComponent();
+  };
 
-  const addToList = () => {};
+  const addItemToList = () => {
+    console.log(item);
+    addToList({ ...item, count: 1 });
+    changeSidebarComponent();
+  };
 
   return (
     <>
@@ -37,10 +50,10 @@ const ItemDescription = ({ setSidebarComponent, item }) => {
             </>
           )}
           <div className="btns">
-            <button className="delete-btn" onClick={deleteItem}>
+            <button className="delete-btn" onClick={removeItem}>
               delete
             </button>
-            <button className="add-btn" onClick={addToList}>
+            <button className="add-btn" onClick={addItemToList}>
               Add to list
             </button>
           </div>
@@ -56,6 +69,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { setSidebarComponent })(
-  ItemDescription
-);
+export default connect(mapStateToProps, {
+  setSidebarComponent,
+  addToList,
+  deleteItem,
+})(ItemDescription);

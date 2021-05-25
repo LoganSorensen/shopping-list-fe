@@ -621,6 +621,7 @@ a {
   font-size: 1.6rem;
   font-weight: 700;
   border: none;
+  cursor: pointer;
 }
 .item-description .btns .delete-btn {
   color: #34333a;
