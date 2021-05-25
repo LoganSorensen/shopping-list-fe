@@ -70,6 +70,15 @@
     }
   }
 
+  .shopping-list-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: @text-dark;
+    margin-bottom: 3.9rem;
+  }
+
   .list-category {
     margin-bottom: 4.4rem;
   }
@@ -86,13 +95,37 @@
     }
   }
 
-  .save-list-form {
+  .list-options {
     width: 100%;
     background-color: white;
     position: absolute;
     left: 0;
     bottom: 0;
     padding: 3.4rem 3.9rem;
+
+    button {
+      font-size: 1.6rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cancel-btn {
+      color: @text-dark;
+      background-color: transparent;
+    }
+
+    .complete-btn {
+      color: white;
+      background-color: #56ccf2;
+      padding: 1.85rem 2.1rem;
+      border-radius: 12px;
+    }
+  }
+
+  .list-btns {
+    display: flex;
+    justify-content: space-evenly;
   }
 
   .form--disabled {

@@ -1,8 +1,13 @@
-import { SET_CURRENT_PAGE, SET_SIDEBAR_COMPONENT } from "../actions/types";
+import {
+  SET_CURRENT_PAGE,
+  SET_SIDEBAR_COMPONENT,
+  SET_SHOPPING_LIST_EDITABLE,
+} from "../actions/types";
 
 const initialState = {
   currentPage: window.location.pathname,
   sidebarComponent: "shoppingList",
+  shoppingListEditable: true,
 };
 
 export const setPageState = (state = initialState, action) => {
@@ -16,6 +21,11 @@ export const setPageState = (state = initialState, action) => {
       return {
         ...state,
         sidebarComponent: action.payload,
+      };
+    case SET_SHOPPING_LIST_EDITABLE:
+      return {
+        ...state,
+        shoppingListEditable: !state.shoppingListEditable,
       };
     default:
       return state;

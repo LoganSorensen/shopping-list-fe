@@ -312,6 +312,14 @@ a {
   color: #828282;
   margin-bottom: 1.5rem;
 }
+.shopping-list .shopping-list-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #34333a;
+  margin-bottom: 3.9rem;
+}
 .shopping-list .list-category {
   margin-bottom: 4.4rem;
 }
@@ -325,13 +333,33 @@ a {
   font-size: 1.8rem;
   font-weight: 600;
 }
-.shopping-list .save-list-form {
+.shopping-list .list-options {
   width: 100%;
   background-color: white;
   position: absolute;
   left: 0;
   bottom: 0;
   padding: 3.4rem 3.9rem;
+}
+.shopping-list .list-options button {
+  font-size: 1.6rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+.shopping-list .list-options .cancel-btn {
+  color: #34333a;
+  background-color: transparent;
+}
+.shopping-list .list-options .complete-btn {
+  color: white;
+  background-color: #56ccf2;
+  padding: 1.85rem 2.1rem;
+  border-radius: 12px;
+}
+.shopping-list .list-btns {
+  display: flex;
+  justify-content: space-evenly;
 }
 .shopping-list .form--disabled {
   pointer-events: none;
