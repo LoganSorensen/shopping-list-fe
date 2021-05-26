@@ -20,7 +20,6 @@ const ItemDescription = ({
   };
 
   const addItemToList = () => {
-    console.log(item);
     addToList({ ...item, count: 1 });
     changeSidebarComponent();
   };

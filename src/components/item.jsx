@@ -4,7 +4,13 @@ import { connect } from "react-redux";
 import { setItemDetails, addToList } from "../actions/setItemsActions";
 import { setSidebarComponent } from "../actions/setPageStateActions";
 
-const Item = ({ item, setItemDetails, setSidebarComponent, addToList }) => {
+const Item = ({
+  item,
+  setItemDetails,
+  setSidebarComponent,
+  addToList,
+  editable,
+}) => {
   const handleClick = (e) => {
     if (e.target.classList.contains("material-icons")) return;
     setSidebarComponent("itemDescription");
@@ -12,6 +18,8 @@ const Item = ({ item, setItemDetails, setSidebarComponent, addToList }) => {
   };
 
   const addItemToList = () => {
+    // prevents new items from being added to the list after editing is done
+    if (!editable) return;
     setSidebarComponent("shoppingList");
     addToList({
       id: item.id,
@@ -31,7 +39,13 @@ const Item = ({ item, setItemDetails, setSidebarComponent, addToList }) => {
   );
 };
 
-export default connect(null, {
+const mapStateToProps = (state) => {
+  return {
+    editable: state.setPageState.shoppingListEditable,
+  };
+};
+
+export default connect(mapStateToProps, {
   setItemDetails,
   setSidebarComponent,
   addToList,

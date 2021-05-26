@@ -3,7 +3,7 @@
   background-color: #fff0de;
   height: 100%;
   width: 100%;
-  padding: 4.3rem 3.1rem 0 4.8rem;
+  padding: 4.3rem 3rem 0 4rem;
 
   .add-item-cta {
     position: relative;
@@ -63,6 +63,23 @@
   }
 
   .item-list {
+    max-height: 59%;
+    overflow: auto;
+    padding-right: 1rem;
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 24px;
+      height: 68px;
+      background: #b2b2b2;
+    }
+    &::-webkit-scrollbar-track {
+      margin: 20px;
+      border-radius: 24px;
+      background: white;
+    }
+
     h3 {
       font-size: 1.4rem;
       color: #828282;
@@ -88,6 +105,11 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+
+    div {
+      display: flex;
+      align-items: center;
+    }
 
     p {
       font-size: 1.8rem;

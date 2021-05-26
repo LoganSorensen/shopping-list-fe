@@ -266,7 +266,7 @@ a {
   background-color: #fff0de;
   height: 100%;
   width: 100%;
-  padding: 4.3rem 3.1rem 0 4.8rem;
+  padding: 4.3rem 3rem 0 4rem;
 }
 .shopping-list .add-item-cta {
   position: relative;
@@ -318,6 +318,24 @@ a {
   z-index: 1;
   margin-left: 2.4rem;
 }
+.shopping-list .item-list {
+  max-height: 59%;
+  overflow: auto;
+  padding-right: 1rem;
+}
+.shopping-list .item-list::-webkit-scrollbar {
+  width: 4px;
+}
+.shopping-list .item-list::-webkit-scrollbar-thumb {
+  border-radius: 24px;
+  height: 68px;
+  background: #b2b2b2;
+}
+.shopping-list .item-list::-webkit-scrollbar-track {
+  margin: 20px;
+  border-radius: 24px;
+  background: white;
+}
 .shopping-list .item-list h3 {
   font-size: 1.4rem;
   color: #828282;
@@ -339,6 +357,10 @@ a {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+}
+.shopping-list .list-item div {
+  display: flex;
+  align-items: center;
 }
 .shopping-list .list-item p {
   font-size: 1.8rem;
@@ -784,4 +806,20 @@ a {
   border-radius: 12px;
   padding: 2rem 3rem;
   margin-left: 1.28rem;
+}
+.checkbox {
+  margin-right: 1.6rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 2px solid #f9a109;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.checkbox span {
+  display: none;
+  color: #f9a109;
+  font-size: 2rem;
+}
+.checked span {
+  display: block;
 }

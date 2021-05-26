@@ -22,7 +22,9 @@ const DeleteListModal = () => {
         <button className="cancel-btn" onClick={closeModal}>
           cancel
         </button>
-        <button className="delete-btn">Yes</button>
+        <button className="delete-btn" onClick={deleteList}>
+          Yes
+        </button>
       </div>
     </div>
   );
