@@ -7,10 +7,13 @@ import Sidebar from "./components/sidebar";
 import ItemsPage from "./pages/itemsPage";
 import HistoryPage from "./pages/historyPage";
 import StatisticsPage from "./pages/statisticsPage";
+import DeleteListModal from "./components/deleteListModal";
 
 function App() {
   return (
     <div className="App">
+      {/* <div className='body-blackout'> */}
+
       <Navigation />
       <div className="viewport">
         <Route exact path="/" component={ItemsPage} />
@@ -18,6 +21,8 @@ function App() {
         <Route exact path="/statistics" component={StatisticsPage} />
       </div>
       <Sidebar />
+      {/* </div> */}
+      <DeleteListModal />
     </div>
   );
 }

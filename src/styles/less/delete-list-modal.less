@@ -1,0 +1,55 @@
+.delete-list-modal {
+  display: none;
+  position: absolute;
+  margin: 0 auto;
+  z-index: 3;
+  width: 50rem;
+  height: 21.9rem;
+  background-color: white;
+  border-radius: 24px;
+  margin: auto;
+  inset: 0;
+  padding: 3rem;
+
+  button {
+    border: none;
+    background-color: transparent;
+    font-size: 1.6rem;
+    cursor: pointer;
+  }
+
+  .close-btn {
+    color: #828282;
+    position: absolute;
+    right: 4%;
+    top: 7%;
+  }
+
+  p {
+    color: @text-dark;
+    font-size: 2.4rem;
+    font-weight: 600;
+    width: 90%;
+    margin-bottom: 4rem;
+    line-height: 3rem;
+  }
+
+  .btns {
+    text-align: end;
+  }
+
+  .cancel-btn {
+    color: @text-dark;
+    margin-right: 1.28rem;
+    padding: 0;
+  }
+
+  .delete-btn {
+    color: white;
+    font-weight: 700;
+    background-color: @red;
+    border-radius: 12px;
+    padding: 2rem 3rem;
+    margin-left: 1.28rem;
+  }
+}

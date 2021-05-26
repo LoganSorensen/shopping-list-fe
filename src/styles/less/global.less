@@ -28,19 +28,29 @@ a {
   user-select: none;
 }
 
+.body-blackout {
+  display: none;
+  background: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+}
+
 .App {
   display: flex;
+  position: relative;
 }
 
 .viewport {
   width: 100%;
   margin-left: @nav-width;
-  // margin-right: @sidebar-width;
   padding: 2.77rem 9rem 0 8rem;
 }
 
 .sidebar {
-  // position: fixed;
   top: 0;
   right: 0%;
   height: 100vh;

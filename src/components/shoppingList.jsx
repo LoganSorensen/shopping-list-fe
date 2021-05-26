@@ -3,7 +3,10 @@ import { connect } from "react-redux";
 
 import { ReactComponent as BottleSVG } from "../assets/source.svg";
 import { ReactComponent as ShoppingSVG } from "../assets/undraw_shopping_app_flsj_1.svg";
-import { setSidebarComponent, setShoppingListEditable } from "../actions/setPageStateActions";
+import {
+  setSidebarComponent,
+  setShoppingListEditable,
+} from "../actions/setPageStateActions";
 import { setShoppingList } from "../actions/setShoppingListActions";
 import ItemCount from "./itemCount";
 
@@ -30,6 +33,13 @@ const ShoppingList = ({
     e.preventDefault();
     setShoppingList({ items: list, listName: listName });
     setShoppingListEditable();
+  };
+
+  const openModal = () => {
+    const modal = document.querySelector(".delete-list-modal");
+    const bodyBlackout = document.querySelector(".body-blackout");
+    modal.style.display = "block";
+    bodyBlackout.style.display = "block";
   };
 
   return (
@@ -75,9 +85,7 @@ const ShoppingList = ({
 
       {editable ? (
         <div
-          className={`list-options ${
-            list.length > 0 ? "" : "form--disabled"
-          }`}
+          className={`list-options ${list.length > 0 ? "" : "form--disabled"}`}
         >
           <form onSubmit={saveList}>
             <input
@@ -91,8 +99,10 @@ const ShoppingList = ({
         </div>
       ) : (
         <div className="list-options list-btns">
-          <button className='cancel-btn'>cancel</button>
-          <button className='complete-btn'>Complete</button>
+          <button className="cancel-btn" onClick={openModal}>
+            cancel
+          </button>
+          <button className="complete-btn">Complete</button>
         </div>
       )}
     </div>
@@ -111,5 +121,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   setSidebarComponent,
   setShoppingList,
-  setShoppingListEditable
+  setShoppingListEditable,
 })(ShoppingList);

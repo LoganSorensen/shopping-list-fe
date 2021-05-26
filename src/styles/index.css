@@ -150,8 +150,19 @@ a {
   -ms-user-select: none;
   user-select: none;
 }
+.body-blackout {
+  display: none;
+  background: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+}
 .App {
   display: flex;
+  position: relative;
 }
 .viewport {
   width: 100%;
@@ -724,4 +735,53 @@ a {
 }
 .item-count--active .icon {
   color: #f9a109;
+}
+.delete-list-modal {
+  display: none;
+  position: absolute;
+  margin: 0 auto;
+  z-index: 3;
+  width: 50rem;
+  height: 21.9rem;
+  background-color: white;
+  border-radius: 24px;
+  margin: auto;
+  inset: 0;
+  padding: 3rem;
+}
+.delete-list-modal button {
+  border: none;
+  background-color: transparent;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+.delete-list-modal .close-btn {
+  color: #828282;
+  position: absolute;
+  right: 4%;
+  top: 7%;
+}
+.delete-list-modal p {
+  color: #34333a;
+  font-size: 2.4rem;
+  font-weight: 600;
+  width: 90%;
+  margin-bottom: 4rem;
+  line-height: 3rem;
+}
+.delete-list-modal .btns {
+  text-align: end;
+}
+.delete-list-modal .cancel-btn {
+  color: #34333a;
+  margin-right: 1.28rem;
+  padding: 0;
+}
+.delete-list-modal .delete-btn {
+  color: white;
+  font-weight: 700;
+  background-color: #eb5757;
+  border-radius: 12px;
+  padding: 2rem 3rem;
+  margin-left: 1.28rem;
 }
