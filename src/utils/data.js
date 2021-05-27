@@ -88,3 +88,37 @@ export const data = {
     },
   ],
 };
+
+export const historyData = {
+  dates: ["August 2020", "July 2020"],
+  lists: [
+    {
+      name: "Grocery List",
+      month: "August 2020",
+      date: ["1", "8", "27", "2020"],
+      status: "completed",
+      items: [],
+    },
+    {
+      name: "Eero's farewel party",
+      month: "August 2020",
+      date: ["1", "8", "24", "2020"],
+      status: "completed",
+      items: [],
+    },
+    {
+      name: "Board game week 2",
+      month: "July 2020",
+      date: ["1", "7", "27", "2020"],
+      status: "completed",
+      items: [],
+    },
+    {
+      name: "Grocery List",
+      month: "July 2020",
+      date: ["1", "7", "16", "2020"],
+      status: "cancelled",
+      items: [],
+    },
+  ],
+};

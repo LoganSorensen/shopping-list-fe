@@ -1,0 +1,52 @@
+.history-item {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  margin-bottom: 2.8rem;
+  padding: 1.9rem 2rem;
+  cursor: pointer;
+
+  .name {
+    font-size: 1.9rem;
+    font-weight: 600;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    width: 25%;
+
+    span {
+      color: #c1c1c4;
+    }
+
+    .calendar {
+      margin-right: 1.3rem;
+    }
+
+    .date {
+      font-size: 1.4rem;
+      margin-right: 2.5rem;
+    }
+
+    .status {
+      font-size: 1.2rem;
+      border: 1px solid;
+      padding: 0.4rem 0.7rem;
+      border-radius: 8px;
+      margin-right: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .chevron {
+    color: @yellow;
+    font-size: 3rem;
+  }
+}

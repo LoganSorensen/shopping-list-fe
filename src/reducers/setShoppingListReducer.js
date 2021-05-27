@@ -34,7 +34,6 @@ export const setShoppingList = (state = initialState, action) => {
         items: itemsArr,
       };
     case CANCEL_SHOPPING_LIST:
-      console.log("cancelling");
       return {
         ...state,
         items: [],

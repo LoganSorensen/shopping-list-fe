@@ -469,6 +469,19 @@ a {
 .items-page .item-search input::placeholder {
   color: #bdbdbd;
 }
+.history-page h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #34333a;
+  margin: 1rem 0 4rem;
+}
+.history-page h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.7rem;
+}
+.history-page .month {
+  margin-bottom: 5.4rem;
+}
 .items-list .category {
   margin-bottom: 4.75rem;
 }
@@ -825,4 +838,49 @@ a {
 }
 .checked span {
   display: block;
+}
+.history-item {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  margin-bottom: 2.8rem;
+  padding: 1.9rem 2rem;
+  cursor: pointer;
+}
+.history-item .name {
+  font-size: 1.9rem;
+  font-weight: 600;
+}
+.history-item div {
+  display: flex;
+  align-items: center;
+  width: 25%;
+}
+.history-item div span {
+  color: #c1c1c4;
+}
+.history-item div .calendar {
+  margin-right: 1.3rem;
+}
+.history-item div .date {
+  font-size: 1.4rem;
+  margin-right: 2.5rem;
+}
+.history-item div .status {
+  font-size: 1.2rem;
+  border: 1px solid;
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  margin-right: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.history-item .chevron {
+  color: #f9a109;
+  font-size: 3rem;
 }
