@@ -12,8 +12,6 @@ import DeleteListModal from "./components/deleteListModal";
 function App() {
   return (
     <div className="App">
-      {/* <div className='body-blackout'> */}
-
       <Navigation />
       <div className="viewport">
         <Route exact path="/" component={ItemsPage} />
@@ -21,7 +19,6 @@ function App() {
         <Route exact path="/statistics" component={StatisticsPage} />
       </div>
       <Sidebar />
-      {/* </div> */}
       <DeleteListModal />
     </div>
   );

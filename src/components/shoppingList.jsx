@@ -29,6 +29,7 @@ const ShoppingList = ({
 
     setShoppingList({ items: items, listName: listName });
     setShoppingListEditable();
+    setListName("");
   };
 
   const openModal = () => {

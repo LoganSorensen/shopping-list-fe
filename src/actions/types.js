@@ -15,3 +15,7 @@ export const DELETE_ITEM = "DELETE_ITEM";
 // setShoppingListActions
 export const SET_SHOPPING_LIST = "SET_SHOPPING_LIST";
 export const TOGGLE_ITEM_COMPLETED = "TOGGLE_ITEM_COMPLETED";
+export const CANCEL_LIST = "CANCEL_LIST";
+export const CANCEL_SHOPPING_LIST = "CANCEL_SHOPPING_LIST";
+
+

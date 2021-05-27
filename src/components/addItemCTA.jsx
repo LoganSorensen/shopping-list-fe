@@ -10,7 +10,7 @@ const AddItemCTA = ({ setSidebarComponent }) => {
   };
 
   return (
-    <div className="add-item-cta">
+    <div className="add-item-cta noselect">
       <BottleSVG />
       <div>
         <p>Can't find what you need?</p>

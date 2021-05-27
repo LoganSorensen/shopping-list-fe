@@ -16,6 +16,8 @@ const ItemList = ({
     toggleItemCompleted(item.id);
   };
 
+  // console.log(list)
+
   return (
     <>
       <div className="shopping-list-header">

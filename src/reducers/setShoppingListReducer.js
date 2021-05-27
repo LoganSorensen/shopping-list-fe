@@ -1,4 +1,8 @@
-import { SET_SHOPPING_LIST, TOGGLE_ITEM_COMPLETED } from "../actions/types";
+import {
+  SET_SHOPPING_LIST,
+  TOGGLE_ITEM_COMPLETED,
+  CANCEL_SHOPPING_LIST,
+} from "../actions/types";
 
 const initialState = {
   listName: "Shopping list",
@@ -28,6 +32,12 @@ export const setShoppingList = (state = initialState, action) => {
       return {
         ...state,
         items: itemsArr,
+      };
+    case CANCEL_SHOPPING_LIST:
+      console.log("cancelling");
+      return {
+        ...state,
+        items: [],
       };
     default:
       return state;

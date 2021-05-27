@@ -6,6 +6,7 @@ import {
   SET_COUNT,
   ADD_ITEM,
   DELETE_ITEM,
+  CANCEL_LIST,
 } from "../actions/types";
 import { data } from "../utils/data";
 
@@ -91,6 +92,12 @@ export const setItems = (state = initialState, action) => {
       return {
         ...state,
         items: state.items.filter((item) => item.id !== action.payload.id),
+      };
+    case CANCEL_LIST:
+      return {
+        ...state,
+        items: [...state.items, ...state.shoppingList],
+        shoppingList: [],
       };
     default:
       return state;

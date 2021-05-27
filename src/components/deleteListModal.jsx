@@ -1,6 +1,17 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const DeleteListModal = () => {
+import {
+  cancelShoppingList,
+  cancelList,
+} from "../actions/setShoppingListActions";
+import { setShoppingListEditable } from "../actions/setPageStateActions";
+
+const DeleteListModal = ({
+  cancelShoppingList,
+  setShoppingListEditable,
+  cancelList,
+}) => {
   const closeModal = () => {
     const modal = document.querySelector(".delete-list-modal");
     const bodyBlackout = document.querySelector(".body-blackout");
@@ -8,7 +19,12 @@ const DeleteListModal = () => {
     bodyBlackout.style.display = "none";
   };
 
-  const deleteList = () => {};
+  const deleteList = () => {
+    cancelList();
+    cancelShoppingList();
+    setShoppingListEditable();
+    closeModal();
+  };
 
   return (
     <div className="delete-list-modal">
@@ -30,4 +46,8 @@ const DeleteListModal = () => {
   );
 };
 
-export default DeleteListModal;
+export default connect(null, {
+  cancelShoppingList,
+  setShoppingListEditable,
+  cancelList,
+})(DeleteListModal);

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { removeFromList, setCount } from "../actions/setItemsActions";
 
-const ItemCount = ({ item, removeFromList, setCount }) => {
+const ItemCount = ({ item, removeFromList, setCount, editable }) => {
   const [itemCount, setItemCount] = useState(item.count);
 
   const changeCount = (e) => {
@@ -30,6 +30,7 @@ const ItemCount = ({ item, removeFromList, setCount }) => {
   };
 
   const toggleActive = (e) => {
+    if (!editable) return;
     const parentEl = e.currentTarget.parentElement;
     parentEl.classList.toggle("item-count--active");
   };
@@ -52,7 +53,11 @@ const ItemCount = ({ item, removeFromList, setCount }) => {
       <button className="change-count-btn" onClick={changeCount}>
         <span className="material-icons-outlined icon">remove</span>
       </button>
-      <button className="count-btn" onClick={toggleActive}>
+      <button
+        className="count-btn"
+        style={{ cursor: editable ? "pointer" : "auto" }}
+        onClick={toggleActive}
+      >
         <span className="count-number">{itemCount}</span>pcs
       </button>
       <button className="change-count-btn" onClick={changeCount}>
@@ -62,4 +67,12 @@ const ItemCount = ({ item, removeFromList, setCount }) => {
   );
 };
 
-export default connect(null, { removeFromList, setCount })(ItemCount);
+const mapStateToProps = (state) => {
+  return {
+    editable: state.setPageState.shoppingListEditable,
+  };
+};
+
+export default connect(mapStateToProps, { removeFromList, setCount })(
+  ItemCount
+);
