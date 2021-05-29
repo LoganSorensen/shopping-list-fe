@@ -15,6 +15,7 @@ const HistoryPage = () => {
             if (date === list.month) {
               return <HistoryItem list={list} />;
             }
+            return null;
           })}
         </div>
       ))}
