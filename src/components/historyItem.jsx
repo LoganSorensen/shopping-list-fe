@@ -1,10 +1,8 @@
 import React from "react";
 
+import { formatDate } from "../utils/functions";
+
 const HistoryItem = ({ list }) => {
-  const daysOfTheWeek = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
-  const formatDate = (date) => {
-    return `${daysOfTheWeek[date[0]]} ${date[1]}.${date[2]}.${date[3]}`;
-  };
   return (
     <div className="history-item">
       <span className="name">{list.name}</span>

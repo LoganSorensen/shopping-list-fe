@@ -97,28 +97,37 @@ export const historyData = {
       month: "August 2020",
       date: ["1", "8", "27", "2020"],
       status: "completed",
-      items: [],
+      list: [],
     },
     {
       name: "Eero's farewel party",
       month: "August 2020",
       date: ["1", "8", "24", "2020"],
       status: "completed",
-      items: [],
+      list: {
+        categories: ['Cookies', 'Beverages'],
+        items: [
+          {category: 'Cookies', name: 'Cookies Chocolate', count: 3},
+          {category: 'Cookies', name: 'Doris Truffle', count: 1},
+          {category: 'Beverages', name: 'Soft drink 1.5L', count: 2},
+          {category: 'Beverages', name: 'Beer', count: 8},
+          {category: 'Beverages', name: 'Cider', count: 6},
+        ]
+      },
     },
     {
       name: "Board game week 2",
       month: "July 2020",
       date: ["1", "7", "27", "2020"],
       status: "completed",
-      items: [],
+      list: [],
     },
     {
       name: "Grocery List",
       month: "July 2020",
       date: ["1", "7", "16", "2020"],
       status: "cancelled",
-      items: [],
+      list: [],
     },
   ],
 };
