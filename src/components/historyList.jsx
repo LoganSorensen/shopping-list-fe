@@ -24,6 +24,7 @@ const HistoryList = () => {
 
   useEffect(() => {
     determineColumnWidth();
+    setData(historyData.lists[1])
   }, []);
 
   return (

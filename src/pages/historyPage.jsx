@@ -8,12 +8,12 @@ const HistoryPage = () => {
   return (
     <div className="history-page">
       <h2>Shopping history</h2>
-      {historyData.dates.map((date) => (
-        <div className="month">
+      {historyData.dates.map((date, index) => (
+        <div key={index} className="month">
           <h3>{date}</h3>
-          {historyData.lists.map((list) => {
+          {historyData.lists.map((list, index) => {
             if (date === list.month) {
-              return <HistoryItem list={list} />;
+              return <HistoryItem key={index} list={list} />;
             }
             return null;
           })}
