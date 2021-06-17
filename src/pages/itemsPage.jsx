@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
+import axios from "axios";
+import { connect } from "react-redux";
 
 import ItemSearch from "../components/itemSearch";
-import ItemsList from '../components/itemsList';
+import ItemsList from "../components/itemsList";
+import { setInitialState } from "../actions/setItemsActions";
 
-const ItemsPage = () => {
+const ItemsPage = ({ setInitialState }) => {
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/items")
+      .then((res) => {
+        // console.log(res.data);
+        setInitialState(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [setInitialState]);
+
   return (
     <div className="items-page">
       <header>
@@ -18,4 +33,4 @@ const ItemsPage = () => {
   );
 };
 
-export default ItemsPage;
+export default connect(null, { setInitialState })(ItemsPage);

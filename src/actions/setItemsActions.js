@@ -1,4 +1,5 @@
 import {
+  SET_INIITIAL_STATE,
   SET_ITEM_DETAILS,
   ADD_TO_LIST,
   REMOVE_FROM_LIST,
@@ -7,6 +8,10 @@ import {
   ADD_ITEM,
   DELETE_ITEM,
 } from "./types";
+
+export const setInitialState = (state) => {
+  return { type: SET_INIITIAL_STATE, payload: state };
+};
 
 export const setItemDetails = (item) => {
   return { type: SET_ITEM_DETAILS, payload: item };

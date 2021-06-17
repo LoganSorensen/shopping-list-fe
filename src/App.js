@@ -15,7 +15,9 @@ function App() {
     <div className="App">
       <Navigation />
       <div className="viewport">
-        <Route exact path="/" component={ItemsPage} />
+        <Route exact path="/">
+          <ItemsPage />
+        </Route>
         <Route exact path="/history" component={HistoryPage} />
         <Route path="/history/:id" component={HistoryListPage} />
         <Route path="/statistics" component={StatisticsPage} />

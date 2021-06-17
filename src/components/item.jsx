@@ -22,7 +22,7 @@ const Item = ({
     if (!editable) return;
     setSidebarComponent("shoppingList");
     addToList({
-      id: item.id,
+      id: item._id,
       category: item.category,
       name: item.name,
       count: 1,

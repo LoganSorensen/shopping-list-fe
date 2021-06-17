@@ -1,4 +1,5 @@
 import {
+  SET_INIITIAL_STATE,
   SET_ITEM_DETAILS,
   ADD_TO_LIST,
   REMOVE_FROM_LIST,
@@ -8,11 +9,10 @@ import {
   DELETE_ITEM,
   CANCEL_LIST,
 } from "../actions/types";
-import { data } from "../utils/data";
 
 const initialState = {
-  allCategories: data.categories,
-  items: data.items,
+  allCategories: [],
+  items: [],
   query: "",
   categories: [],
   shoppingList: [],
@@ -21,6 +21,13 @@ const initialState = {
 
 export const setItems = (state = initialState, action) => {
   switch (action.type) {
+    case SET_INIITIAL_STATE:
+      return {
+        ...state,
+        allCategories: action.payload.categories,
+        // categories: action.payload.categories,
+        items: action.payload.items,
+      };
     case SET_QUERY:
       return {
         ...state,
@@ -33,7 +40,7 @@ export const setItems = (state = initialState, action) => {
       };
     case ADD_TO_LIST:
       const filteredData = state.items.filter(
-        (item) => item.id !== action.payload.id
+        (item) => item._id !== action.payload.id
       );
 
       // checks if a category matching the items exists already
@@ -77,6 +84,7 @@ export const setItems = (state = initialState, action) => {
         shoppingList: newList,
       };
     case ADD_ITEM:
+      console.log(action.payload);
       if (!state.allCategories.includes(action.payload.category)) {
         return {
           ...state,
