@@ -10,13 +10,13 @@ const ItemCount = ({ item, removeFromList, setCount, editable }) => {
     if (e.target.textContent === "add") {
       setItemCount(itemCount + 1);
       setCount({
-        id: item.id,
+        _id: item._id,
         value: 1,
       });
     } else if (e.target.textContent === "remove" && itemCount > 1) {
       setItemCount(itemCount - 1);
       setCount({
-        id: item.id,
+        _id: item._id,
         value: -1,
       });
     }

@@ -84,7 +84,6 @@ export const setItems = (state = initialState, action) => {
         shoppingList: newList,
       };
     case ADD_ITEM:
-      console.log(action.payload);
       if (!state.allCategories.includes(action.payload.category)) {
         return {
           ...state,

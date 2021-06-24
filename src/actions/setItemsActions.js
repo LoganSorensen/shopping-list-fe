@@ -49,7 +49,6 @@ export const deleteItem = (item) => (dispatch) => {
   axios
     .delete(`http://localhost:5000/items/${item._id}`)
     .then((res) => {
-      // console.log(res);
       dispatch({ type: DELETE_ITEM, payload: item });
     })
     .catch((err) => console.log(err));

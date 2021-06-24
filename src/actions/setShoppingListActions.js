@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   SET_SHOPPING_LIST,
   TOGGLE_ITEM_COMPLETED,
@@ -5,8 +6,14 @@ import {
   CANCEL_LIST,
 } from "./types";
 
-export const setShoppingList = (list) => {
-  return { type: SET_SHOPPING_LIST, payload: list };
+export const setShoppingList = (list) => (dispatch) => {
+  axios
+    .post("http://localhost:5000/lists", list)
+    .then((res) => {
+      console.log(res);
+      dispatch({ type: SET_SHOPPING_LIST, payload: list });
+    })
+    .catch((err) => console.log(err));
 };
 
 export const toggleItemCompleted = (id) => {

@@ -27,7 +27,13 @@ const ShoppingList = ({
       return { ...item, completed: false };
     });
 
-    setShoppingList({ items: items, listName: listName });
+    const categories = [];
+    list.map((item) => {
+      if (!categories.includes(item.category)) categories.push(item.category);
+      return null;
+    });
+
+    setShoppingList({ items: items, name: listName, categories: categories });
     setShoppingListEditable();
     setListName("");
   };
