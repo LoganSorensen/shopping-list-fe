@@ -3,15 +3,20 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { ReactComponent as Logo } from "../assets/logo.svg";
-import { setCurrentPage } from "../actions/setPageStateActions";
+import {
+  setCurrentPage,
+  setSidebarComponent,
+} from "../actions/setPageStateActions";
 
-const Navigation = ({ currentPage, setCurrentPage }) => {
+const Navigation = ({
+  currentPage,
+  setCurrentPage,
+  setSidebarComponent,
+  listLength,
+}) => {
   const [badgeNum, setBadgeNum] = useState(3);
 
-  useEffect(() => {
-
-    setBadgeNum(3)
-  }, [])
+  useEffect(() => setBadgeNum(listLength), [listLength]);
 
   return (
     <div className="navigation">
@@ -63,7 +68,10 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
           </div>
         </Link>
       </div>
-      <button className="shopping-list-btn">
+      <button
+        className="shopping-list-btn"
+        onClick={() => setSidebarComponent("shoppingList")}
+      >
         {badgeNum > 0 && <div className="badge">{badgeNum}</div>}
         <span className="material-icons-outlined shopping-cart-icon noselect">
           shopping_cart
@@ -76,7 +84,11 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
 const mapStateToProps = (state) => {
   return {
     currentPage: state.setPageState.currentPage,
+    listLength: state.setItems.shoppingList.length,
   };
 };
 
-export default connect(mapStateToProps, { setCurrentPage })(Navigation);
+export default connect(mapStateToProps, {
+  setCurrentPage,
+  setSidebarComponent,
+})(Navigation);

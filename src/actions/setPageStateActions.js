@@ -1,4 +1,8 @@
-import { SET_CURRENT_PAGE, SET_SIDEBAR_COMPONENT, SET_SHOPPING_LIST_EDITABLE } from "./types";
+import {
+  SET_CURRENT_PAGE,
+  SET_SIDEBAR_COMPONENT,
+  SET_SHOPPING_LIST_EDITABLE,
+} from "./types";
 
 export const setCurrentPage = (page) => {
   return { type: SET_CURRENT_PAGE, payload: page };
@@ -9,5 +13,5 @@ export const setSidebarComponent = (component) => {
 };
 
 export const setShoppingListEditable = () => {
-  return {type: SET_SHOPPING_LIST_EDITABLE}
-}
+  return { type: SET_SHOPPING_LIST_EDITABLE };
+};

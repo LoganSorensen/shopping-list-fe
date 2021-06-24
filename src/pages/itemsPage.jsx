@@ -11,7 +11,6 @@ const ItemsPage = ({ setInitialState }) => {
     axios
       .get("http://localhost:5000/items")
       .then((res) => {
-        // console.log(res.data);
         setInitialState(res.data);
       })
       .catch((err) => {
