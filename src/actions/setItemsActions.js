@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   SET_INIITIAL_STATE,
   SET_ITEM_DETAILS,
@@ -33,10 +34,23 @@ export const setCount = (item) => {
   return { type: SET_COUNT, payload: item };
 };
 
-export const addItem = (item) => {
-  return { type: ADD_ITEM, payload: item };
+export const addItem = (item) => (dispatch) => {
+  axios
+    .post("http://localhost:5000/items", item)
+    .then((res) => {
+      // console.log(res.data);
+      dispatch({ type: ADD_ITEM, payload: res.data.createdItem });
+    })
+    .catch((err) => console.log(err));
 };
 
-export const deleteItem = (item) => {
-  return { type: DELETE_ITEM, payload: item };
+export const deleteItem = (item) => (dispatch) => {
+  console.log(item);
+  axios
+    .delete(`http://localhost:5000/items/${item._id}`)
+    .then((res) => {
+      // console.log(res);
+      dispatch({ type: DELETE_ITEM, payload: item });
+    })
+    .catch((err) => console.log(err));
 };

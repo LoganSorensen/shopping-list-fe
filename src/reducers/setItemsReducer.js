@@ -40,7 +40,7 @@ export const setItems = (state = initialState, action) => {
       };
     case ADD_TO_LIST:
       const filteredData = state.items.filter(
-        (item) => item._id !== action.payload.id
+        (item) => item._id !== action.payload._id
       );
 
       // checks if a category matching the items exists already
@@ -64,12 +64,12 @@ export const setItems = (state = initialState, action) => {
         ...state,
         items: [...state.items, action.payload],
         shoppingList: state.shoppingList.filter(
-          (item) => item.id !== action.payload.id
+          (item) => item._id !== action.payload._id
         ),
       };
     case SET_COUNT:
       const newList = state.shoppingList.map((item) => {
-        if (item.id === action.payload.id) {
+        if (item._id === action.payload._id) {
           return {
             ...item,
             count: item.count + action.payload.value,
@@ -99,7 +99,7 @@ export const setItems = (state = initialState, action) => {
     case DELETE_ITEM:
       return {
         ...state,
-        items: state.items.filter((item) => item.id !== action.payload.id),
+        items: state.items.filter((item) => item._id !== action.payload._id),
       };
     case CANCEL_LIST:
       return {

@@ -45,7 +45,7 @@ const AddItemForm = ({ setSidebarComponent, categories, addItem }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addItem({ ...item, id: Date.now() });
+    addItem(item);
     resetForm();
     setSidebarComponent("shoppingList");
   };
