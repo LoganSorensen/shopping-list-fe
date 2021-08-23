@@ -20,6 +20,21 @@ const initialState = {
 };
 
 export const setItems = (state = initialState, action) => {
+  const getCategories = () => {
+    const list = state.shoppingList.filter(
+      (item) => item._id !== action.payload._id
+    );
+
+    const categories = [];
+
+    list.forEach(
+      (item) =>
+        !categories.includes(item.category) && categories.push(item.category)
+    );
+
+    return categories;
+  };
+
   switch (action.type) {
     case SET_INIITIAL_STATE:
       return {
@@ -62,6 +77,7 @@ export const setItems = (state = initialState, action) => {
     case REMOVE_FROM_LIST:
       return {
         ...state,
+        categories: getCategories(),
         items: [...state.items, action.payload],
         shoppingList: state.shoppingList.filter(
           (item) => item._id !== action.payload._id
