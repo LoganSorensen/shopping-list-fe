@@ -27,6 +27,7 @@ export const setItems = (state = initialState, action) => {
 
     const categories = [];
 
+    // loops through the shopping list and pulls unique categories from the entries
     list.forEach(
       (item) =>
         !categories.includes(item.category) && categories.push(item.category)

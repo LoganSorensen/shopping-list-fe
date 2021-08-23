@@ -2,12 +2,16 @@
   position: relative;
   background-color: #fff0de;
   height: 100vh;
-  // width: 20%;
   max-width: 100%;
-  // width: calc(100vw - @nav-width);
   min-height: 100vh;
   max-height: 100vh;
   padding: 4.3rem 3rem 0 4rem;
+  @media @mobile-large {
+    padding: 4.3rem 2rem 0;
+  }
+  @media @mobile-medium {
+    padding: 4.3rem 1rem 0;
+  }
 
   .add-item-cta {
     position: relative;
@@ -20,8 +24,10 @@
       padding-right: 1.2rem;
     }
     @media @tablet {
-      width: 50%;
       margin: 0 auto;
+    }
+    @media @mobile-large {
+      margin-bottom: 2rem;
     }
 
     svg {
@@ -74,9 +80,6 @@
     bottom: 13%;
     z-index: 1;
     margin-left: 2.4rem;
-    // @media @tablet {
-    //   margin: 0 auto;
-    // }
   }
 
   .item-list {
@@ -141,6 +144,12 @@
     left: 0;
     bottom: 0;
     padding: 3.4rem 3.9rem;
+    @media @mobile-large {
+      padding: 2rem;
+    }
+    @media @mobile-medium {
+      padding: 2rem 1rem;
+    }
 
     button {
       font-size: 1.6rem;

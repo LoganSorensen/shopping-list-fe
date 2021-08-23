@@ -188,7 +188,14 @@ a {
 }
 @media (max-width: 768px) {
   .viewport {
-    width: 100vw;
+    width: calc(100vw - 9.4rem);
+    padding: 2.77rem 2rem 0;
+  }
+}
+@media (max-width: 425px) {
+  .viewport {
+    width: calc(100vw - 6rem);
+    margin-left: 6rem;
   }
 }
 .sidebar {
@@ -218,6 +225,13 @@ a {
   max-width: calc(100vw - 9.4rem);
   left: calc(0px + 9.4rem);
 }
+@media (max-width: 425px) {
+  .sidebar--open {
+    min-width: calc(100vw - 6rem);
+    max-width: calc(100vw - 6rem);
+    left: calc(0px + 6rem);
+  }
+}
 .navigation {
   background-color: white;
   height: 100vh;
@@ -230,14 +244,25 @@ a {
   align-items: center;
   justify-content: space-between;
 }
+@media (max-width: 425px) {
+  .navigation {
+    width: 6rem;
+  }
+}
 .navigation .nav-links {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
+}
+.navigation .nav-links span {
+  padding: 0 !important;
 }
 .navigation .nav-links .nav-link {
   display: flex;
+  width: 100%;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
   position: relative;
   margin-bottom: 5rem;
@@ -246,6 +271,8 @@ a {
   display: flex;
 }
 .navigation .nav-links .active-tab-indicator {
+  position: absolute;
+  left: 0;
   width: 0.6rem;
   height: 4.5rem;
   border-radius: 0 4px 4px 0;
@@ -311,6 +338,16 @@ a {
   max-height: 100vh;
   padding: 4.3rem 3rem 0 4rem;
 }
+@media (max-width: 425px) {
+  .shopping-list {
+    padding: 4.3rem 2rem 0;
+  }
+}
+@media (max-width: 375px) {
+  .shopping-list {
+    padding: 4.3rem 1rem 0;
+  }
+}
 .shopping-list .add-item-cta {
   position: relative;
   background-color: #80485b;
@@ -326,8 +363,12 @@ a {
 }
 @media (max-width: 768px) {
   .shopping-list .add-item-cta {
-    width: 50%;
     margin: 0 auto;
+  }
+}
+@media (max-width: 425px) {
+  .shopping-list .add-item-cta {
+    margin-bottom: 2rem;
   }
 }
 .shopping-list .add-item-cta svg {
@@ -432,6 +473,16 @@ a {
   left: 0;
   bottom: 0;
   padding: 3.4rem 3.9rem;
+}
+@media (max-width: 425px) {
+  .shopping-list .list-options {
+    padding: 2rem;
+  }
+}
+@media (max-width: 375px) {
+  .shopping-list .list-options {
+    padding: 2rem 1rem;
+  }
 }
 .shopping-list .list-options button {
   font-size: 1.6rem;
