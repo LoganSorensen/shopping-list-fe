@@ -54,6 +54,7 @@ a {
   // max-width: calc(100vw - @sidebar-width);
   margin-left: @nav-width;
   max-height: 100vh;
+  min-height: 100vh;
   overflow-y: auto;
   // margin-right: @sidebar-width;
   padding: 2.77rem 9rem 0 8rem;
@@ -66,7 +67,10 @@ a {
     width: calc(100vw - 30rem - @nav-width);
   }
   @media @tablet {
-    min-width: calc(100vw - @nav-width);
+    
+    // max-width: calc(100vw - @nav-width);
+    // width: calc(100vw - @nav-width);
+    width: 100vw;
   }
 }
 
@@ -87,7 +91,7 @@ a {
   }
   @media @tablet {
     position: absolute;
-    z-index: 200;
+    z-index: 2;
     // display: none;
     left: calc(100vw);
   }
