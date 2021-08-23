@@ -1,7 +1,8 @@
 .shopping-list {
   position: relative;
   background-color: #fff0de;
-  height: 100%;
+  // height: 100%;
+  // width: 20%;
   max-width: 100%;
   min-height: 100vh;
   max-height: 100vh;
@@ -14,6 +15,10 @@
     padding-right: 2.7rem;
     border-radius: 24px;
     margin-bottom: 4.3rem;
+    @media @laptop {
+padding-right: 1.2rem;
+    }
+    
 
     svg {
       position: absolute;
@@ -25,6 +30,9 @@
       display: flex;
       flex-direction: column;
       margin-left: 12.2rem;
+      @media @laptop {
+        margin-left: 10rem;
+      }
     }
 
     p {

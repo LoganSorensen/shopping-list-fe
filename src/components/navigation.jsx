@@ -14,9 +14,22 @@ const Navigation = ({
   setSidebarComponent,
   listLength,
 }) => {
-  const [badgeNum, setBadgeNum] = useState(3);
+  const [badgeNum, setBadgeNum] = useState(listLength);
 
   useEffect(() => setBadgeNum(listLength), [listLength]);
+
+  const toggleShoppingList = () => {
+    setSidebarComponent("shoppingList");
+    const sidebar = document.querySelector(".sidebar");
+
+    if (window.innerWidth <= 768) {
+      if (Array.from(sidebar.classList).includes("sidebar--open")) {
+        sidebar.classList.remove("sidebar--open");
+      } else {
+        sidebar.classList.add("sidebar--open");
+      }
+    }
+  };
 
   return (
     <div className="navigation">
@@ -68,10 +81,7 @@ const Navigation = ({
           </div>
         </Link>
       </div>
-      <button
-        className="shopping-list-btn"
-        onClick={() => setSidebarComponent("shoppingList")}
-      >
+      <button className="shopping-list-btn" onClick={toggleShoppingList}>
         {badgeNum > 0 && <div className="badge">{badgeNum}</div>}
         <span className="material-icons-outlined shopping-cart-icon noselect">
           shopping_cart

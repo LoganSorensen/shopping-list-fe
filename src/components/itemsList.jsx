@@ -11,7 +11,7 @@ const ItemsList = ({ items, query, categories }) => {
   const determineColumnWidth = () => {
     const viewport = document.querySelector(".viewport");
     const width = viewport.offsetWidth;
-    // console.log(width)
+    // console.log(width / 200 - 1)
     setNumberOfColumns(Math.round(width / 200 - 1));
   };
 

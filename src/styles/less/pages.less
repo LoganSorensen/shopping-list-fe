@@ -19,6 +19,7 @@
     font-weight: 700;
     @media @laptop {
       margin-bottom: 2rem;
+      width: 100%;
     }
   }
 
@@ -35,6 +36,9 @@
       position: absolute;
       left: 8%;
       color: @text-dark;
+      @media @laptop {
+        left: 2%;
+      }
     }
 
     input {
@@ -47,6 +51,9 @@
       border-radius: 12px;
       &::placeholder {
         color: #bdbdbd;
+      }
+      @media @laptop {
+        padding-left: 4rem;
       }
     }
   }
