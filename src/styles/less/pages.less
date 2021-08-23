@@ -4,6 +4,10 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 5.7rem;
+    @media @laptop {
+      flex-direction: column;
+      margin-bottom: 3rem;
+    }
   }
 
   h2 {
@@ -13,6 +17,9 @@
     font-size: 2.6rem;
     color: @text-dark;
     font-weight: 700;
+    @media @laptop {
+      margin-bottom: 2rem;
+    }
   }
 
   .highlight {
