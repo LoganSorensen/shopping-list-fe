@@ -660,10 +660,17 @@ a {
   grid-gap: 1.9rem;
   row-gap: 2.75rem;
 }
+@media (max-width: 425px) {
+  .items-list .items {
+    gap: 0.8rem;
+    row-gap: 2.4rem;
+  }
+}
 .items-list .item {
   align-self: start;
   font-size: 1.6rem;
   max-width: 18.2rem;
+  min-width: 18.2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -672,6 +679,18 @@ a {
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.05);
   border-radius: 12px;
   cursor: pointer;
+}
+@media (max-width: 768px) {
+  .items-list .item {
+    max-width: 14rem;
+    min-width: 14rem;
+  }
+}
+@media (max-width: 425px) {
+  .items-list .item {
+    max-width: 100%;
+    min-width: 100%;
+  }
 }
 .items-list .item span {
   color: #c1c1c4;
@@ -1006,7 +1025,6 @@ a {
   display: block;
 }
 .history-item {
-  color: black;
   background-color: white;
   width: 100%;
   display: flex;
@@ -1018,14 +1036,38 @@ a {
   padding: 1.9rem 2rem;
   cursor: pointer;
 }
+@media (max-width: 768px) {
+  .history-item {
+    padding: 1rem 2rem;
+  }
+}
 .history-item .name {
+  color: black;
   font-size: 1.9rem;
   font-weight: 600;
+}
+@media (max-width: 768px) {
+  .history-item .name {
+    margin-bottom: 1rem;
+  }
+}
+.history-item .name-and-status {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.history-item .name-and-status .status {
+  display: none;
+}
+@media (max-width: 768px) {
+  .history-item .name-and-status .status {
+    display: block;
+  }
 }
 .history-item div {
   display: flex;
   align-items: center;
-  width: 25%;
 }
 .history-item div span {
   color: #c1c1c4;
@@ -1033,9 +1075,19 @@ a {
 .history-item div .calendar {
   margin-right: 1.3rem;
 }
+@media (max-width: 425px) {
+  .history-item div .calendar {
+    display: none;
+  }
+}
 .history-item div .date {
   font-size: 1.4rem;
   margin-right: 2.5rem;
+}
+@media (max-width: 768px) {
+  .history-item div .date {
+    margin: 0;
+  }
 }
 .history-item div .status {
   font-size: 1.2rem;
@@ -1046,6 +1098,13 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 8rem;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .history-item div .status {
+    display: none;
+  }
 }
 .history-item .chevron {
   color: #f9a109;

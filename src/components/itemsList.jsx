@@ -10,9 +10,10 @@ const ItemsList = ({ items, query, categories }) => {
 
   const determineColumnWidth = () => {
     const viewport = document.querySelector(".viewport");
-    const width = viewport.offsetWidth;
-    // console.log(width / 200 - 1)
-    setNumberOfColumns(Math.round(width / 200 - 1));
+    const item = document.querySelector(".item");
+    const viewportWidth = viewport.offsetWidth;
+    const itemWidth = item?.offsetWidth || 182;
+    setNumberOfColumns(Math.round(viewportWidth / itemWidth - 1));
   };
 
   // calculates the number of columns in the grid whenever the window is resized
