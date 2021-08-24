@@ -1089,6 +1089,11 @@ a {
     margin: 0;
   }
 }
+@media (max-width: 375px) {
+  .history-item div .date {
+    display: none;
+  }
+}
 .history-item div .status {
   font-size: 1.2rem;
   border: 1px solid;

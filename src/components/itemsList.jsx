@@ -26,7 +26,11 @@ const ItemsList = ({ items, query, categories }) => {
   });
 
   useEffect(() => {
-    determineColumnWidth();
+    let mounted = true;
+    mounted && determineColumnWidth();
+    return function cleanup() {
+      mounted = false;
+    };
   }, []);
 
   const getCategories = () => {

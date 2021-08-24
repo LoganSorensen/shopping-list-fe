@@ -23,8 +23,12 @@ const HistoryList = () => {
   });
 
   useEffect(() => {
-    determineColumnWidth();
+    let mounted = true
+    mounted && determineColumnWidth();
     setData(historyData.lists[1])
+    return function cleanup() {
+      mounted = false;
+    }
   }, []);
 
   return (
