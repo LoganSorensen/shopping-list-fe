@@ -41,7 +41,9 @@ const Navigation = ({
               currentPage === "/" ? "active" : ""
             } active-tab-indicator`}
           ></div>
-          <span className="material-icons noselect">format_list_bulleted</span>
+          <span className="icon material-icons noselect">
+            format_list_bulleted
+          </span>
 
           <div className="tooltip noselect">
             <div className="arrow-left"></div>
@@ -58,7 +60,7 @@ const Navigation = ({
               currentPage === "/history" ? "active" : ""
             } active-tab-indicator`}
           ></div>
-          <span className="material-icons noselect">replay</span>
+          <span className="icon material-icons noselect">replay</span>
           <div className="tooltip noselect">
             <div className="arrow-left"></div>
             <span>history</span>
@@ -74,7 +76,9 @@ const Navigation = ({
               currentPage === "/statistics" ? "active" : ""
             } active-tab-indicator`}
           ></div>
-          <span className="material-icons-outlined noselect">assessment</span>
+          <span className="icon material-icons-outlined noselect">
+            assessment
+          </span>
           <div className="tooltip noselect">
             <div className="arrow-left"></div>
             <span>statistics</span>
@@ -83,7 +87,7 @@ const Navigation = ({
       </div>
       <button className="shopping-list-btn" onClick={toggleShoppingList}>
         {badgeNum > 0 && <div className="badge">{badgeNum}</div>}
-        <span className="material-icons-outlined shopping-cart-icon noselect">
+        <span className="icon material-icons-outlined shopping-cart-icon noselect">
           shopping_cart
         </span>
       </button>

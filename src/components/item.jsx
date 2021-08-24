@@ -15,6 +15,16 @@ const Item = ({
     if (e.target.classList.contains("material-icons")) return;
     setSidebarComponent("itemDescription");
     setItemDetails(item);
+
+    const sidebar = document.querySelector(".sidebar");
+
+    if (window.innerWidth <= 768) {
+      if (Array.from(sidebar.classList).includes("sidebar--open")) {
+        sidebar.classList.remove("sidebar--open");
+      } else {
+        sidebar.classList.add("sidebar--open");
+      }
+    }
   };
 
   const addItemToList = () => {

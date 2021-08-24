@@ -255,7 +255,7 @@ a {
   align-items: center;
   width: 100%;
 }
-.navigation .nav-links span {
+.navigation .nav-links .icon {
   padding: 0 !important;
 }
 .navigation .nav-links .nav-link {
@@ -364,11 +364,18 @@ a {
 @media (max-width: 768px) {
   .shopping-list .add-item-cta {
     margin: 0 auto;
+    width: 50vw;
+    margin-bottom: 2rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .shopping-list .add-item-cta {
+    width: 60vw;
   }
 }
 @media (max-width: 425px) {
   .shopping-list .add-item-cta {
-    margin-bottom: 2rem;
+    width: 100%;
   }
 }
 .shopping-list .add-item-cta svg {
@@ -417,6 +424,16 @@ a {
   bottom: 13%;
   z-index: 1;
   margin-left: 2.4rem;
+}
+@media (max-width: 768px) {
+  .shopping-list .shopping-svg {
+    margin-left: 35%;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .shopping-list .shopping-svg {
+    margin-left: 20%;
+  }
 }
 .shopping-list .item-list {
   max-height: 59%;
@@ -778,7 +795,7 @@ a {
 .item-description {
   background-color: white;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding: 2.7rem 4.4rem 3.4rem;
   display: flex;
   flex-direction: column;
@@ -802,6 +819,7 @@ a {
 .item-description .img-wrapper {
   width: 100%;
   min-height: 22rem;
+  max-height: 22rem;
   background-color: #fafafe;
   border-radius: 25px;
   overflow: hidden;
@@ -812,7 +830,7 @@ a {
   font-size: 2rem;
 }
 .item-description .img-wrapper img {
-  max-width: 100%;
+  object-fit: cover;
 }
 .item-description .detail-name {
   color: #c1c1c4;
