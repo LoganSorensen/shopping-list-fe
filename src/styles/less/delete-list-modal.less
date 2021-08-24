@@ -2,7 +2,7 @@
   display: none;
   position: absolute;
   margin: 0 auto;
-  z-index: 3;
+  z-index: 5;
   width: 50rem;
   height: 21.9rem;
   background-color: white;
@@ -10,6 +10,15 @@
   margin: auto;
   inset: 0;
   padding: 3rem;
+  justify-content: space-between;
+  flex-direction: column;
+  @media @tablet {
+    width: 80vw;
+    height: 25rem;
+  }
+  @media @mobile-large {
+    padding: 2rem;
+  }
 
   button {
     border: none;

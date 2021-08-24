@@ -41,7 +41,7 @@ const ShoppingList = ({
   const openModal = () => {
     const modal = document.querySelector(".delete-list-modal");
     const bodyBlackout = document.querySelector(".body-blackout");
-    modal.style.display = "block";
+    modal.style.display = "flex";
     bodyBlackout.style.display = "block";
   };
 
