@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import axios from "axios";
 
 import { ReactComponent as ShoppingSVG } from "../assets/undraw_shopping_app_flsj_1.svg";
 import { setShoppingListEditable } from "../actions/setPageStateActions";
-import { setShoppingList } from "../actions/setShoppingListActions";
+import {
+  setShoppingList,
+  cancelList,
+  cancelShoppingList,
+} from "../actions/setShoppingListActions";
 
 import AddItemCTA from "./addItemCTA";
 import ItemList from "./itemList";
@@ -11,9 +16,12 @@ import ItemList from "./itemList";
 const ShoppingList = ({
   setShoppingList,
   setShoppingListEditable,
+  cancelList,
+  cancelShoppingList,
   list,
   items,
   editable,
+  listId,
 }) => {
   const [listName, setListName] = useState("");
 
@@ -43,6 +51,17 @@ const ShoppingList = ({
     const bodyBlackout = document.querySelector(".body-blackout");
     modal.style.display = "flex";
     bodyBlackout.style.display = "block";
+  };
+
+  const completeList = () => {
+    axios
+      .put(`http://localhost:5000/lists/${listId}`, { completed: true })
+      .then(() => {
+        cancelList();
+        cancelShoppingList();
+        setShoppingListEditable();
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -78,7 +97,9 @@ const ShoppingList = ({
           <button className="cancel-btn" onClick={openModal}>
             cancel
           </button>
-          <button className="complete-btn">Complete</button>
+          <button className="complete-btn" onClick={completeList}>
+            Complete
+          </button>
         </div>
       )}
     </div>
@@ -87,6 +108,7 @@ const ShoppingList = ({
 
 const mapStateToProps = (state) => {
   return {
+    listId: state.setShoppingList.listId,
     items: state.setShoppingList.items,
     list: state.setItems.shoppingList,
     editable: state.setPageState.shoppingListEditable,
@@ -96,4 +118,6 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   setShoppingList,
   setShoppingListEditable,
+  cancelShoppingList,
+  cancelList,
 })(ShoppingList);

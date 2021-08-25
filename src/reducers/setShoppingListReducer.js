@@ -5,6 +5,7 @@ import {
 } from "../actions/types";
 
 const initialState = {
+  listId: null,
   listName: "Shopping list",
   items: [],
   completed: false,
@@ -16,8 +17,9 @@ export const setShoppingList = (state = initialState, action) => {
     case SET_SHOPPING_LIST:
       return {
         ...state,
-        listName: action.payload.listName,
-        items: action.payload.items,
+        listId: action.payload.id,
+        listName: action.payload.list.listName,
+        items: action.payload.list.items,
       };
     case TOGGLE_ITEM_COMPLETED:
       const itemsArr = state.items.map((item) => {

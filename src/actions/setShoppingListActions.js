@@ -10,8 +10,10 @@ export const setShoppingList = (list) => (dispatch) => {
   axios
     .post("http://localhost:5000/lists", list)
     .then((res) => {
-      console.log(res);
-      dispatch({ type: SET_SHOPPING_LIST, payload: list });
+      dispatch({
+        type: SET_SHOPPING_LIST,
+        payload: { list, id: res.data.createdList._id },
+      });
     })
     .catch((err) => console.log(err));
 };
