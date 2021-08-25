@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from "react";
-
-import { historyData } from "../utils/data";
-import { formatDate } from "../utils/functions";
+import axios from "axios";
+import { useParams } from "react-router";
 
 const HistoryList = () => {
-  const [data, setData] = useState(historyData.lists[1]);
+  const [data, setData] = useState();
   const [numberOfColumns, setNumberOfColumns] = useState(3);
+  const { id } = useParams();
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/lists/${id}`)
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, [id]);
 
   const determineColumnWidth = () => {
     const viewport = document.querySelector(".viewport");
@@ -23,29 +32,24 @@ const HistoryList = () => {
   });
 
   useEffect(() => {
-    let mounted = true
-    mounted && determineColumnWidth();
-    setData(historyData.lists[1])
-    return function cleanup() {
-      mounted = false;
-    }
-  }, []);
+    determineColumnWidth();
+  }, [data]);
 
   return (
     <div className="history-list">
-      <h2>{data.name}</h2>
+      <h2>{data?.name}</h2>
       <div className="date">
         <span className="material-icons calendar">event_note</span>
-        <span>{formatDate(data.date)}</span>
+        <span>{data?.dateCreated}</span>
       </div>
-      {data.list.categories.map((category, index) => (
+      {data?.categories.map((category, index) => (
         <div className="category" key={index}>
           <h3>{category}</h3>
           <div
             className="items"
             style={{ gridTemplateColumns: `repeat(${numberOfColumns}, 1fr)` }}
           >
-            {data.list.items.map((item, index) => {
+            {data?.items.map((item, index) => {
               if (item.category === category) {
                 return (
                   <div className="item" key={index}>

@@ -2,9 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const HistoryItem = ({ list }) => {
-  console.log(list);
   return (
-    <Link to={`/history/${list.id}`}>
+    <Link to={`/history/${list._id}`}>
       <div className="history-item">
         <div className="name-and-status">
           <span className="name">{list.name}</span>
