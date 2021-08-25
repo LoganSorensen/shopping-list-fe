@@ -1,19 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 import HistoryItem from "../components/historyItem";
 
-import { historyData } from "../utils/data";
-
 const HistoryPage = () => {
+  const [lists, setLists] = useState([]);
+  const [dates, setDates] = useState(["June 2021"]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/lists`)
+      .then((res) => {
+        setLists(res.data.lists);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    lists.forEach((list) => {
+      if (!dates.includes(list.monthCreated)) {
+        setDates([...dates, list.monthCreated]);
+      }
+    });
+    // eslint-disable-next-line
+  }, [lists]);
+
   return (
     <div className="history-page">
       <h2>Shopping history</h2>
-      {historyData.dates.map((date, index) => (
-        <div key={index} className="month">
+      {dates.map((date) => (
+        <div key={date} className="month">
           <h3>{date}</h3>
-          {historyData.lists.map((list, index) => {
-            if (date === list.month) {
-              return <HistoryItem key={index} list={list} />;
+          {lists.map((list) => {
+            if (date === list.monthCreated) {
+              return <HistoryItem key={list._id} list={list} />;
             }
             return null;
           })}

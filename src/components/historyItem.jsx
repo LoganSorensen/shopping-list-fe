@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { formatDate } from "../utils/functions";
-
 const HistoryItem = ({ list }) => {
+  console.log(list);
   return (
     <Link to={`/history/${list.id}`}>
       <div className="history-item">
@@ -20,14 +19,14 @@ const HistoryItem = ({ list }) => {
         </div>
         <div>
           <span className="material-icons calendar">event_note</span>
-          <span className="date">{formatDate(list.date)}</span>
+          <span className="date">{list.dateCreated}</span>
           <div
             className="status"
             style={{
-              color: list.status === "completed" ? "#56ccf2" : "#eb5757",
+              color: list.completed ? "#56ccf2" : "#eb5757",
             }}
           >
-            {list.status}
+            {list.completed ? "completed" : "cancelled"}
           </div>
           <span className="material-icons-outlined chevron">chevron_right</span>
         </div>
