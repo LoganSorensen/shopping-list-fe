@@ -9,7 +9,7 @@ const HistoryPage = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/lists`)
+      .get(`https://lsorensen-shopping-list.herokuapp.com/lists`)
       .then((res) => {
         setLists(res.data.lists);
       })

@@ -55,7 +55,7 @@ const ShoppingList = ({
 
   const completeList = () => {
     axios
-      .put(`http://localhost:5000/lists/${listId}`, { completed: true })
+      .put(`https://lsorensen-shopping-list.herokuapp.com/lists/${listId}`, { completed: true })
       .then(() => {
         cancelList();
         cancelShoppingList();

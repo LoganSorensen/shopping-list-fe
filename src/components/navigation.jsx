@@ -66,11 +66,11 @@ const Navigation = ({
             <span>history</span>
           </div>
         </Link>
-        <Link
+        {/* <Link
           to="/statistics"
           className="nav-link"
           onClick={() => setCurrentPage("/statistics")}
-        >
+        > */}
           <div
             className={`${
               currentPage === "/statistics" ? "active" : ""
@@ -83,7 +83,7 @@ const Navigation = ({
             <div className="arrow-left"></div>
             <span>statistics</span>
           </div>
-        </Link>
+        {/* </Link> */}
       </div>
       <button className="shopping-list-btn" onClick={toggleShoppingList}>
         {badgeNum > 0 && <div className="badge">{badgeNum}</div>}

@@ -36,18 +36,16 @@ export const setCount = (item) => {
 
 export const addItem = (item) => (dispatch) => {
   axios
-    .post("http://localhost:5000/items", item)
+    .post("https://lsorensen-shopping-list.herokuapp.com/items", item)
     .then((res) => {
-      // console.log(res.data);
       dispatch({ type: ADD_ITEM, payload: res.data.createdItem });
     })
     .catch((err) => console.log(err));
 };
 
 export const deleteItem = (item) => (dispatch) => {
-  console.log(item);
   axios
-    .delete(`http://localhost:5000/items/${item._id}`)
+    .delete(`https://lsorensen-shopping-list.herokuapp.com/items/${item._id}`)
     .then((res) => {
       dispatch({ type: DELETE_ITEM, payload: item });
     })

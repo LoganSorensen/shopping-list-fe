@@ -8,7 +8,7 @@ import {
 
 export const setShoppingList = (list) => (dispatch) => {
   axios
-    .post("http://localhost:5000/lists", list)
+    .post("https://lsorensen-shopping-list.herokuapp.com/lists", list)
     .then((res) => {
       dispatch({
         type: SET_SHOPPING_LIST,

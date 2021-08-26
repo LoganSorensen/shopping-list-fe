@@ -9,7 +9,7 @@ import { setInitialState } from "../actions/setItemsActions";
 const ItemsPage = ({ setInitialState }) => {
   useEffect(() => {
     axios
-      .get("http://localhost:5000/items")
+      .get("https://lsorensen-shopping-list.herokuapp.com/items")
       .then((res) => {
         setInitialState(res.data);
       })
