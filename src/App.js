@@ -1,3 +1,4 @@
+import { useState, useLayoutEffect } from "react";
 import { Route } from "react-router-dom";
 
 import "./styles/index.css";
@@ -11,12 +12,27 @@ import StatisticsPage from "./pages/statisticsPage";
 import DeleteListModal from "./components/deleteListModal";
 
 function App() {
+  // updates window.innerHeight on resize
+  const useWindowSize = () => {
+    const [height, setHeight] = useState(window.innerHeight);
+
+    useLayoutEffect(() => {
+      function updateHeight() {
+        setHeight(window.innerHeight);
+      }
+      window.addEventListener("resize", updateHeight);
+      updateHeight();
+      return () => window.removeEventListener("resize", updateHeight);
+    }, []);
+    return height;
+  };
+
   return (
     <div className="App">
       <Navigation />
       <div
         className="viewport"
-        style={{ height: window.innerHeight, maxHeight: window.innerHeight }}
+        style={{ height: useWindowSize(), maxHeight: useWindowSize() }}
       >
         <Route exact path="/">
           <ItemsPage />

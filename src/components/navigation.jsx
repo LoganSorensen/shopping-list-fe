@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -31,8 +31,23 @@ const Navigation = ({
     }
   };
 
+  // updates window.innerHeight on resize
+  const useWindowSize = () => {
+    const [height, setHeight] = useState(window.innerHeight);
+
+    useLayoutEffect(() => {
+      function updateHeight() {
+        setHeight(window.innerHeight);
+      }
+      window.addEventListener("resize", updateHeight);
+      updateHeight();
+      return () => window.removeEventListener("resize", updateHeight);
+    }, []);
+    return height;
+  };
+
   return (
-    <div className="navigation" style={{ height: window.innerHeight }}>
+    <div className="navigation" style={{ height: useWindowSize() }}>
       <Logo />
       <div className="nav-links">
         <Link to="/" className="nav-link" onClick={() => setCurrentPage("/")}>

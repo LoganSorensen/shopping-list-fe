@@ -67,7 +67,7 @@ const ShoppingList = ({
   };
 
   return (
-    <div className="shopping-list" style={{ height: window.innerHeight }}>
+    <div className="shopping-list">
       <AddItemCTA />
       {list.length < 1 ? (
         <>
