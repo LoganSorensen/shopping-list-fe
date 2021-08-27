@@ -7,7 +7,10 @@ import ItemDescription from "./itemDescription";
 
 const Sidebar = ({ component }) => {
   return (
-    <div className="sidebar">
+    <div
+      className="sidebar"
+      style={{ height: window.innerHeight, maxHeight: window.innerHeight }}
+    >
       {component === "shoppingList" && <ShoppingList />}
       {component === "addItem" && <AddItemForm />}
       {component === "itemDescription" && <ItemDescription />}

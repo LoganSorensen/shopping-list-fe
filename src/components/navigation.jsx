@@ -32,7 +32,7 @@ const Navigation = ({
   };
 
   return (
-    <div className="navigation">
+    <div className="navigation" style={{ height: window.innerHeight }}>
       <Logo />
       <div className="nav-links">
         <Link to="/" className="nav-link" onClick={() => setCurrentPage("/")}>
@@ -71,18 +71,18 @@ const Navigation = ({
           className="nav-link"
           onClick={() => setCurrentPage("/statistics")}
         > */}
-          <div
-            className={`${
-              currentPage === "/statistics" ? "active" : ""
-            } active-tab-indicator`}
-          ></div>
-          <span className="icon material-icons-outlined noselect">
-            assessment
-          </span>
-          <div className="tooltip noselect">
-            <div className="arrow-left"></div>
-            <span>statistics</span>
-          </div>
+        <div
+          className={`${
+            currentPage === "/statistics" ? "active" : ""
+          } active-tab-indicator`}
+        ></div>
+        <span className="icon material-icons-outlined noselect">
+          assessment
+        </span>
+        <div className="tooltip noselect">
+          <div className="arrow-left"></div>
+          <span>statistics</span>
+        </div>
         {/* </Link> */}
       </div>
       <button className="shopping-list-btn" onClick={toggleShoppingList}>

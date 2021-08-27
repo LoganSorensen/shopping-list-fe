@@ -27,7 +27,10 @@ const ItemDescription = ({
   return (
     <>
       {item && (
-        <div className="item-description">
+        <div
+          className="item-description"
+          style={{ height: window.innerHeight }}
+        >
           <button className="back-btn" onClick={changeSidebarComponent}>
             <span className="material-icons-outlined">arrow_right_alt</span>back
           </button>

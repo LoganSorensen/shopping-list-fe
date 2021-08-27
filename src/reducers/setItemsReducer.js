@@ -41,7 +41,6 @@ export const setItems = (state = initialState, action) => {
       return {
         ...state,
         allCategories: action.payload.categories,
-        // categories: action.payload.categories,
         items: action.payload.items,
       };
     case SET_QUERY:

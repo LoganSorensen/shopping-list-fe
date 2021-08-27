@@ -65,7 +65,6 @@ const ItemList = ({
 const mapStateToProps = (state) => {
   return {
     categories: state.setItems.categories,
-    // list: state.setItems.shoppingList,
     name: state.setShoppingList.listName,
     editable: state.setPageState.shoppingListEditable,
   };

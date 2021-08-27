@@ -14,7 +14,10 @@ function App() {
   return (
     <div className="App">
       <Navigation />
-      <div className="viewport">
+      <div
+        className="viewport"
+        style={{ height: window.innerHeight, maxHeight: window.innerHeight }}
+      >
         <Route exact path="/">
           <ItemsPage />
         </Route>

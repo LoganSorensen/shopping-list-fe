@@ -55,7 +55,9 @@ const ShoppingList = ({
 
   const completeList = () => {
     axios
-      .put(`https://lsorensen-shopping-list.herokuapp.com/lists/${listId}`, { completed: true })
+      .put(`https://lsorensen-shopping-list.herokuapp.com/lists/${listId}`, {
+        completed: true,
+      })
       .then(() => {
         cancelList();
         cancelShoppingList();
@@ -65,7 +67,7 @@ const ShoppingList = ({
   };
 
   return (
-    <div className="shopping-list">
+    <div className="shopping-list" style={{ height: window.innerHeight }}>
       <AddItemCTA />
       {list.length < 1 ? (
         <>
