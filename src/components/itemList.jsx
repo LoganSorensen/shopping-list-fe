@@ -12,9 +12,7 @@ const ItemList = ({
   editable,
   toggleItemCompleted,
 }) => {
-  const toggleCompleted = (item) => {
-    toggleItemCompleted(item.id);
-  };
+  const toggleCompleted = (item) => toggleItemCompleted(item._id);
 
   return (
     <>

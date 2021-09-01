@@ -23,7 +23,7 @@ export const setShoppingList = (state = initialState, action) => {
       };
     case TOGGLE_ITEM_COMPLETED:
       const itemsArr = state.items.map((item) => {
-        if (item.id === action.payload) {
+        if (item._id === action.payload) {
           return {
             ...item,
             completed: !item.completed,
